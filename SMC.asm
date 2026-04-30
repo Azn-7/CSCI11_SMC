@@ -1,5 +1,7 @@
 ; TODO:
-;   PRINT when RESULT > 9, as it cannot print a multi-digit value (0-9 is the only numbers in the ascii table)
+;   Accept multi-digit input (max 4, if hit max, then immediately kick user to a new input prompt)
+;   Change input_error to be a calculation error (undefined)
+;   Every space means everything before is thrown on stack and is calculated if operator
 
 ; REGISTERS
 ; R0: Primary
@@ -10,22 +12,9 @@
 ; R5: RESULT Value
 ; R6: (DON'T USE) (PURPOSE: STACK)
 ; R7: (DON'T USE) (PURPOSE: RET address)
-
-                .ORIG x0026
-                .FILL INPUT         ; Prompt for user input (similar to IN)
-                .end
                 
                 .ORIG x0027
                 .FILL FLIP_SIGNS    ; Changes signs of R2 and R1 (For multiplication and division)
-                .end
-                
-                .ORIG x300
-_PROMPT_NEXT    .FILL x3E   ; '>'
-INPUT           LD R0, _PROMPT_NEXT
-                OUT
-                GETC
-                OUT
-                RTI
                 .end
                 
                 .ORIG x400
@@ -49,11 +38,11 @@ ERROR_MESSAGE   .stringz "ERROR. RESTARTING PROGRAM..."
 PROMPT_START    .stringz "SMC RPN calculator\nEnter 0-9 or +, -, *, /, or . to display result on TOS"
 PRINT_TOS       .stringz "\nResult: "
 
-;   -= ERRORS =-
-_INPUT_ERROR    .FILL x3F   ; '?'
-_STACK_ERROR    .FILL x24   ; '$'
-_NUM_ERROR      .FILL x21   ; '!'
-_UNDEFINED_ERROR .stringz "undefined"
+;   -= PROMPTS =-
+_PROMPT_NEXT     .FILL x3E   ; '>'
+_UNDEFINED_ERROR .FILL x3F   ; '?'
+_STACK_ERROR     .FILL x24   ; '$'
+_NUM_ERROR       .FILL x21   ; '!'
 
 ;   -= VALID CHAR =-
 _ZERO           .FILL x30   ; '0'
@@ -67,7 +56,8 @@ _COMMA          .FILL x2C   ; ","
 _ENTER          .FILL x0A   ; ENTER KEY
 
 ;   -= VARIABLES =-
-STACK           .FILL x4000
+STACK           .FILL x4000 ; Main Stack
+NUM_STACK       .blkw #4      ; Stack for multi-digit values
 SIZE            .FILL #0    ; SIZE OF STACK
 RESULT          .FILL #0
 
@@ -87,10 +77,16 @@ START           LD  R4, STACK
                 LEA R0, NEW_LINE
                 PUTS
                 
-INPUT_LOOP      TRAP x26            ;   INPUT
+PRE_INPUT       LD R0, _PROMPT_NEXT
+INPUT_LOOP      GETC            ;   GETC & OUT
                 JSR OPERATOR_CHK    ;   CHECK FOR OPERATORS
                 JSR PERIOD_CHK      ;   CHECK FOR PERIOD "."
                 JSR INVALID_CHK     ;   CHECK FOR INVALID CHARACTERS
+                
+; TODO, NEW MULTI-DIGIT SYSTEM
+; R0 = CURRENT VALUE
+; R1 = 
+; R2 = NUM_STACK
                 LD  R1, CHAR_TO_DECIMAL
                 ADD R0, R0, R1
                 JSR PUSH            ;   IS 0-9, ADD TO STACK
@@ -101,26 +97,27 @@ INPUT_LOOP      TRAP x26            ;   INPUT
 ; ================                FUNCTIONS                       ================
 ; ================================================================================
 
+; TODO
 INVALID_CHK     LD  R1, _ENTER      ;   R0 = ENTER_KEY
                 NOT R1, R1
                 ADD R1, R1, #1
                 ADD R1, R0, R1
-                BRz TOS_CHECK       ;   Compute result if true
+                BRz PRE_INPUT       ;   New line for additional expression
                 LD  R1, _NINE       ;   R0 = '9'
                 NOT R1, R1
                 ADD R1, R1, #1
                 ADD R1, R0, R1
-                BRp ERROR_INVALID   ;   INVALID INPUT (R0 > x39 ('9'))
+                BRp INPUT_LOOP      ;   IGNORE, INVALID INPUT (R0 > x39 ('9'))
                 LD  R1, _ZERO       ;   R0 = '0'
                 NOT R1, R1
                 ADD R1, R1, #1
                 ADD R1, R0, R1
-                BRn ERROR_INVALID   ;   INVALID INPUT (R0 < x2A ('0'))
+                BRn INPUT_LOOP      ;   IGNORE, INVALID INPUT (R0 < x2A ('0'))
                 LD  R1, _COMMA      ;   R0 = ','
                 NOT R1, R1
                 ADD R1, R1, #1
                 ADD R1, R0, R1
-                BRz ERROR_INVALID   ;   INVALID INPUT (R0 == x2C (','))
+                BRz INPUT_LOOP      ;   IGNORE, INVALID INPUT (R0 == x2C (','))
                 RET
                 
 PERIOD_CHK      LD  R1, _PERIOD     ;   R0 = '.'
@@ -156,10 +153,6 @@ ERROR           LEA R0, JUST_LINES
                 AND R0, R0, #0      ; Resets SIZE
                 ST  R0, SIZE
                 BR  START
-
-ERROR_INVALID   LD  R0, _INPUT_ERROR
-                OUT
-                BR ERROR
                
 ERROR_STACK     LD  R0, _STACK_ERROR
                 OUT
@@ -217,16 +210,20 @@ OPERATOR_CHK    LD  R1, _ADD
                 BRz DIV_SUBROUTINE
                 RET                 ;   NO OPERATOR WAS FOUND
                 
-ADD_SUBROUTINE  LEA R3, ADDITION
+ADD_SUBROUTINE  OUT
+                LEA R3, ADDITION
                 BR  EXECUTE_OPERATOR
                 
-SUB_SUBROUTINE  LEA R3, SUBTRACTION
+SUB_SUBROUTINE  OUT
+                LEA R3, SUBTRACTION
                 BR  EXECUTE_OPERATOR
                 
-MUL_SUBROUTINE  LEA R3, MULTIPLICATION
+MUL_SUBROUTINE  OUT
+                LEA R3, MULTIPLICATION
                 BR  EXECUTE_OPERATOR
                 
-DIV_SUBROUTINE  LEA R3, DIVISION
+DIV_SUBROUTINE  OUT
+                LEA R3, DIVISION
                 BR  EXECUTE_OPERATOR
 
 EXECUTE_OPERATOR LD  R2, SIZE
