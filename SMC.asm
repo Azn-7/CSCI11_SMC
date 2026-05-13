@@ -31,8 +31,8 @@ FLIP_SIGNS      NOT R2, R2
                 .ORIG x310
 SAVE_R5         .BLKW #1    ; Save Result
 
-                ST  R5, SAVE_R5
-MULT_10         ADD R5, R1, #0      ;   R1 = R1 * 10
+MULT_10         ST  R5, SAVE_R5
+                ADD R5, R1, #0      ;   R1 = R1 * 10
                 ADD R1, R1, R5
                 ADD R1, R1, R5
                 ADD R1, R1, R5
