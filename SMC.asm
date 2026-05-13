@@ -1,7 +1,3 @@
-; TODO:
-;   Accept multi-digit input (max 4, if hit max, then immediately kick user to a new input prompt)
-;   Every space means everything before is thrown on stack and is calculated if operator
-
 ; REGISTERS
 ; R0: Primary
 ; R1: (FREE) Current Value
@@ -11,22 +7,44 @@
 ; R5: RESULT Value
 ; R6: (DON'T USE) (PURPOSE: STACK)
 ; R7: (DON'T USE) (PURPOSE: RET address)
-                
+
+; ================================================================================
+; ==============              START OF INITALIZATION                ==============
+; ================================================================================
+
                 .ORIG x0027
                 .FILL FLIP_SIGNS    ; Changes signs of R2 and R1 (For multiplication and division)
                 .end
                 
-                .ORIG x400
+                .ORIG x0028
+                .FILL MULT_10
+                .end
+                
+                .ORIG x300
 FLIP_SIGNS      NOT R2, R2
                 ADD R2, R2, #1
                 NOT R1, R1
                 ADD R1, R1, #1
                 RTI
                 .end
+       
+                .ORIG x310
+SAVE_R5         .BLKW #1    ; Save Result
 
-; ================================================================================
-; ==============              START OF INITALIZATION                ==============
-; ================================================================================
+                ST  R5, SAVE_R5
+MULT_10         ADD R5, R1, #0      ;   R1 = R1 * 10
+                ADD R1, R1, R5
+                ADD R1, R1, R5
+                ADD R1, R1, R5
+                ADD R1, R1, R5
+                ADD R1, R1, R5
+                ADD R1, R1, R5
+                ADD R1, R1, R5
+                ADD R1, R1, R5
+                ADD R1, R1, R5
+                LD  R5, SAVE_R5
+                RTI
+                .end
 
                 .ORIG x3000
                 BR START
@@ -57,14 +75,19 @@ _SPACE          .FILL x20   ; " " (SPACE KEY)
 
 ;   -= VARIABLES =-
 STACK           .FILL x4000 ; Main Stack
+NUM_STACK       .BLKW #5
 SIZE            .FILL #0    ; SIZE OF STACK
 RESULT          .FILL #0    ; Saved result from TOS
+SAVE_R4         .BLKW #1    ; Switching from regular stack to num stack
+SAVE_R7         .BLKW #1    ; R7 save for NUM_COMPUTE
+NUM_SIZE        .FILL #0    ; Digits entered into NUM_STACK
 
 ;   -= OTHER =-
 DECIMAL_TO_CHAR .FILL #48
 CHAR_TO_DECIMAL .FILL #-48
 
 ;   -= VALUES =-
+TEN_THOUSAND    .FILL #10000
 THOUSAND        .FILL #1000
 HUNDRED         .FILL #100
 TENS            .FILL #10
@@ -76,7 +99,10 @@ ONES            .FILL #1
 ; ===============                MAIN PROGRAM                       ==============
 ; ================================================================================
             
-START           LD  R4, STACK       ;   ASSIGN MAIN STACK
+START           LEA R1, NUM_STACK   ;   ADD NULL-TERMINATE VALUE TO NUM_STACK
+                AND R0, R0, #0
+                STR R0, R1, #4
+                LD  R4, STACK       ;   ASSIGN MAIN STACK
                 LEA R0, PROMPT_START
                 PUTS
                 LEA R0, NEW_LINE
@@ -85,59 +111,70 @@ START           LD  R4, STACK       ;   ASSIGN MAIN STACK
 PRE_INPUT       LD R0, _PROMPT_NEXT
                 OUT
 INPUT_LOOP      GETC                ;   GETC & OUT
-AFTER_GETC      JSR OPERATOR_CHK    ;   CHECK FOR OPERATORS
+                JSR OPERATOR_CHK    ;   CHECK FOR OPERATORS
                 JSR OTHER_CHAR_CHK  ;   CHECK FOR PERIOD "." OR ENTER_KEY
                 JSR NUM_CHK         ;   CHECK FOR NUMBERS (0-9)
                 BR  INPUT_LOOP      ;   INPUT IS INVALID, REPEATS 
 
 ; ================================================================================
-; ================                IS NUMBER                       ================
+; ================               NUMBER INPUT                     ================
 ; ================================================================================
-; TODO, NEW MULTI-DIGIT SYSTEM
 ; R0 = CURRENT VALUE
-; R1 = SIZE
-; R2 = NUM_STACK
-
-; ================================================================================
-; ================         MULTI-DIGIT INPUT (RUNNING TOTAL)      ================
-; ================================================================================
+; R1 = (FREE)
+; R2 = (FREE)
+; R3 = NUM_SIZE (For Stage 3a)
+; R4 = NUM_STACK
 
 ;   -= 1. INITALIZATION =-
-START_NUM       ; TODO: Initialize running total
-                ; Clear a register (e.g., R5) to 0 to act as CURRENT_TOTAL
-                ; At this point, the first digit is currently in R0 (ASCII).
+START_NUM       ST  R4, SAVE_R4
+                LEA R4, NUM_STACK
+                AND R1, R1, #0
+                ST  R1, NUM_SIZE    ;   RESET DIGIT COUNTER
 
 ;   -= 2. LOOP =-
-IS_NUM          OUT                 ; Echo the typed digit
-                ; TODO: Convert the ASCII digit in R0 to a decimal number
-                ; (Hint: Load CHAR_TO_DECIMAL into a temp register, ADD to R0)
-                
-                ; TODO: Multiply CURRENT_TOTAL (e.g., R5) by 10
-                ; (Hint: R5 * 10 = R5*8 + R5*2. You can use ADDs to do this)
-                
-                ; TODO: Add the new decimal digit (R0) to CURRENT_TOTAL (R5)
-                
-REPEAT          GETC                ; Get next character
-                JSR VALID_CHAR_CHK  ; Check if it's an operator or space (will branch to USER_DONE if valid)
-                JSR REPEAT_NUM_CHK  ; Check if it's another digit (0-9)
-                BR  IS_NUM          ; If it is a digit, loop back to process it
+IS_NUM          OUT
+                LD  R1, CHAR_TO_DECIMAL
+                ADD R0, R0, R1       ;   CONVERT ASCII TO DECIMAL
+                STR R0, R4, #0       ;   STORE DIGIT
+                ADD R4, R4, #1
+                LD  R1, NUM_SIZE     ;   NUM_SIZE++
+                ADD R1, R1, #1
+                ST  R1, NUM_SIZE     ;   SAVE
+                ADD R1, R1, #-4
+                BRz USER_DONE        ;   FORCE DONE AT 4 DIGITS
+REPEAT          GETC
+                JSR VALID_CHAR_CHK   ;   CHECK FOR SPACE or OPERATORS (Quick end)
+                JSR INVALID_NUM_CHK  ;   CHECK FOR ANOTHER DIGIT
+                BR  IS_NUM
 
 ;   -= 3. FINISH =-
-USER_DONE       ; We hit a space or operator. The full number is in CURRENT_TOTAL (R5).
-                ; TODO: Move CURRENT_TOTAL (R5) into R0 so we can push it
-                ; TODO: JSR PUSH to push it onto the main RPN stack.
-                
-                ; Restore R0 to the space/operator character so the main loop can handle it
-                ; Wait, VALID_CHAR_CHK does not modify R0! So R0 STILL has the space/operator.
-                ; But we just moved R5 into R0 to push it! That overwrites the space/operator!
-                ; TODO: So before you move R5 to R0, you MUST save R0 into another register (like R1),
-                ; then do the push, and then restore R0 from R1!
-                
-                ; Jump back to main input loop to handle the space/operator
-                BR AFTER_GETC
+USER_DONE       LD  R0, _SPACE      ;   Auto inputs a space to prevent user from typing more than 4 digits
+                OUT
+                JSR NUM_COMPUTE
+                LD  R4, SAVE_R4     ;   Restore Main Stack
+                JSR PUSH
+                BR  INPUT_LOOP
+  
+;   -= 3a. COMPUTING STAGE =-
 
-;   -= EXTRA =-
-REPEAT_NUM_CHK  LD  R1, _NINE       ;   R0 = '9'
+NUM_COMPUTE     ST  R7, SAVE_R7     ;   For PUSH
+                LEA R4, NUM_STACK   ;   Return pointer back to begining of digit
+                AND R1, R1, #0      ;   R1 = Result
+                LD  R3, NUM_SIZE
+NUM_LOOP        ADD R3, R3, #0
+                BRz NUM_DONE
+                LDR R0, R4, #0      ;   R0 = next decimal digit
+                ADD R4, R4, #1
+                ADD R3, R3, #-1
+                TRAP x28            ;   MULT_10
+                ADD R1, R1, R0      ;   ADD TOGETHER (Ex. 1 + 10 + 100 + 1000)
+                BR  NUM_LOOP
+NUM_DONE        ADD R0, R1, #0      ;   PUSH uses R0
+                RET
+
+;   -= FUNCTION CHECKS =-
+
+INVALID_NUM_CHK  LD  R1, _NINE       ;   R0 = '9'
                 NOT R1, R1
                 ADD R1, R1, #1
                 ADD R1, R0, R1
@@ -147,7 +184,7 @@ REPEAT_NUM_CHK  LD  R1, _NINE       ;   R0 = '9'
                 ADD R1, R1, #1
                 ADD R1, R0, R1
                 BRn REPEAT          ;   INPUT WAS INVALID, IGNORES
-                RET                 ;   0 <= R0 <= 9, returns and continues to BR IS_NUM
+                RET
 
 VALID_CHAR_CHK  LD  R1, _SPACE      ;   RO = " "
                 NOT R1, R1
@@ -180,7 +217,24 @@ VALID_CHAR_CHK  LD  R1, _SPACE      ;   RO = " "
                 ADD R1, R0, R1
                 BRz USER_DONE
                 RET                 ;   NO SPECIAL CHAR
-              
+
+; ================================================================================
+; ================               TOS FUNCTION                     ================
+; ================================================================================
+
+TOS_CHECK       LD  R2, SIZE
+                BRz ERROR_STACK     ;   EMPTY STACK -> ERROR (Can't check empty)
+                LDR R0, R4, #0      ;   TOS value
+                ADD R5, R0, #0
+                ST  R0, RESULT
+_TOS_PRINT      LEA R0, PRINT_TOS
+                PUTS
+                LD  R0, RESULT
+                LD  R1, DECIMAL_TO_CHAR
+                ADD R0, R0, R1
+                OUT
+                BR INPUT_LOOP
+      
 ; ================================================================================
 ; ================                FUNCTIONS                       ================
 ; ================================================================================
@@ -196,19 +250,6 @@ NUM_CHK         LD  R1, _NINE       ;   R0 = '9'
                 ADD R1, R0, R1
                 BRn INPUT_LOOP      ;   IGNORE, INVALID INPUT (R0 < x2A ('0'))
                 BR  START_NUM
-                
-TOS_CHECK       LD  R2, SIZE
-                BRz ERROR_STACK     ;   EMPTY STACK -> ERROR (Can't check empty)
-                LDR R0, R4, #0      ;   TOS value
-                ADD R5, R0, #0
-                ST  R0, RESULT
-_TOS_PRINT      LEA R0, PRINT_TOS
-                PUTS
-                LD  R0, RESULT
-                LD  R1, DECIMAL_TO_CHAR
-                ADD R0, R0, R1
-                OUT
-                BR INPUT_LOOP
                 
 OTHER_CHAR_CHK  LD  R1, _ENTER      ;   R0 = ENTER_KEY
                 NOT R1, R1
