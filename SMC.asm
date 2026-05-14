@@ -20,6 +20,10 @@
                 .FILL MULT_10
                 .end
                 
+                .ORIG x0029
+                .FILL OUT_NUM
+                .end
+                
                 .ORIG x300
 FLIP_SIGNS      NOT R2, R2
                 ADD R2, R2, #1
@@ -31,8 +35,8 @@ FLIP_SIGNS      NOT R2, R2
                 .ORIG x310
 SAVE_R5         .BLKW #1    ; Save Result
 
-                ST  R5, SAVE_R5
-MULT_10         ADD R5, R1, #0      ;   R1 = R1 * 10
+MULT_10         ST  R5, SAVE_R5
+                ADD R5, R1, #0      ;   R1 = R1 * 10
                 ADD R1, R1, R5
                 ADD R1, R1, R5
                 ADD R1, R1, R5
@@ -43,6 +47,153 @@ MULT_10         ADD R5, R1, #0      ;   R1 = R1 * 10
                 ADD R1, R1, R5
                 ADD R1, R1, R5
                 LD  R5, SAVE_R5
+                RTI
+                .end
+                
+                .ORIG x320
+TEN_THOUSAND    .FILL #10000
+THOUSAND        .FILL #1000
+HUNDRED         .FILL #100
+TENS            .FILL #10
+ONES            .FILL #1
+COUNT           .FILL #0
+OUT_STACK       .FILL #0
+                .FILL #0
+                .FILL #0
+                .FILL #0
+                .FILL #0
+TMP_R0          .BLKW #1
+TMP_R4          .BLKW #1
+TMP_R7          .BLKW #1
+DEC_TO_CHAR     .FILL #48
+OUT_NUM         ST  R0, TMP_R0
+                ST  R4, TMP_R4
+                ST  R7, TMP_R7
+                LEA R4, OUT_STACK
+                
+                
+; TEN_THOUSAND
+                LD  R1, TEN_THOUSAND
+                LD  R2, COUNT
+                NOT R1, R1
+                ADD R1, R1, #1
+REPEAT_10K      ADD R0, R0, R1      ; R0 - 10,000
+                BRn END_10K
+                ADD R2, R2, #1      ; COUNT++
+                BR  REPEAT_10K
+END_10K         LD  R0, DEC_TO_CHAR
+                ADD R0, R2, R0
+                STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]
+                LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT
+                ADD R2, R2, #0
+                BRz FINISH_10K      ; CHECK IF VALID TO REMOVE FIRST
+END_10K_2       ADD R0, R0, R1      ; SUB
+                ADD R2, R2, #-1     ; COUNT--
+                BRp END_10K_2
+FINISH_10K      ST  R0, TMP_R0      ; UPDATE CURRENT RESULT
+                ADD R4, R4, #1      ; MOVE POINTER
+
+; THOUSAND
+                LD  R1, THOUSAND
+                LD  R2, COUNT       ; START COUNT OVER
+                NOT R1, R1
+                ADD R1, R1, #1
+REPEAT_1K       ADD R0, R0, R1      ; R0 - 1000
+                BRn END_1K
+                ADD R2, R2, #1      ; COUNT++
+                BR  REPEAT_1K
+END_1K          LD  R0, DEC_TO_CHAR
+                ADD R0, R2, R0
+                STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]
+                LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT
+                ADD R2, R2, #0
+                BRz FINISH_1K       ; CHECK IF VALID TO REMOVE FIRST
+END_1K_2        ADD R0, R0, R1      ; SUB
+                ADD R2, R2, #-1     ; COUNT--
+                BRp END_1K_2
+FINISH_1K       ST  R0, TMP_R0
+                ADD R4, R4, #1
+                
+; HUNDRED
+                LD  R1, HUNDRED
+                LD  R2, COUNT       ; START COUNT OVER
+                NOT R1, R1
+                ADD R1, R1, #1
+REPEAT_100      ADD R0, R0, R1      ; R0 - 1000
+                BRn END_100
+                ADD R2, R2, #1      ; COUNT++
+                BR  REPEAT_100
+END_100         LD  R0, DEC_TO_CHAR
+                ADD R0, R2, R0
+                STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]
+                LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT
+                ADD R2, R2, #0
+                BRz FINISH_100      ; CHECK IF VALID TO REMOVE FIRST
+END_100_2       ADD R0, R0, R1      ; SUB
+                ADD R2, R2, #-1     ; COUNT--
+                BRp END_100_2
+FINISH_100      ST  R0, TMP_R0
+                ADD R4, R4, #1
+                
+; TENS
+                LD  R1, TENS
+                LD  R2, COUNT       ; START COUNT OVER
+                NOT R1, R1
+                ADD R1, R1, #1
+REPEAT_10       ADD R0, R0, R1      ; R0 - 1000
+                BRn END_10
+                ADD R2, R2, #1      ; COUNT++
+                BR  REPEAT_10
+END_10          LD  R0, DEC_TO_CHAR
+                ADD R0, R2, R0
+                STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]
+                LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT
+                ADD R2, R2, #0
+                BRz FINISH_10      ; CHECK IF VALID TO REMOVE FIRST
+END_10_2        ADD R0, R0, R1      ; SUB
+                ADD R2, R2, #-1     ; COUNT--
+                BRp END_10_2
+FINISH_10       ST  R0, TMP_R0
+                ADD R4, R4, #1
+                
+; ONES
+                LD  R1, ONES
+                LD  R2, COUNT       ; START COUNT OVER
+                NOT R1, R1
+                ADD R1, R1, #1
+REPEAT_1        ADD R0, R0, R1      ; R0 - 1000
+                BRn END_1
+                ADD R2, R2, #1      ; COUNT++
+                BR  REPEAT_1
+END_1           LD  R0, DEC_TO_CHAR
+                ADD R0, R2, R0
+                STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]
+                LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT
+                ADD R2, R2, #0
+                BRz FINISH_1      ; CHECK IF VALID TO REMOVE FIRST
+END_1_2         ADD R0, R0, R1      ; SUB
+                ADD R2, R2, #-1     ; COUNT--
+                BRp END_1_2
+FINISH_1        ST  R0, TMP_R0
+                ADD R4, R4, #1
+                
+FINISH_OUTPUT   LEA R4, OUT_STACK
+                LDR R0, R4, #0      ; [!][][][][]
+                OUT
+                ADD R4, R4, #1
+                LDR R0, R4, #0      ; [][!][][][]
+                OUT
+                ADD R4, R4, #1
+                LDR R0, R4, #0      ; [][][!][][]
+                OUT
+                ADD R4, R4, #1
+                LDR R0, R4, #0      ; [][][][!][]
+                OUT
+                ADD R4, R4, #1
+                LDR R0, R4, #0      ; [][][][][!]
+                OUT
+                LD  R4, TMP_R4
+                LD  R7, TMP_R7
                 RTI
                 .end
 
@@ -85,13 +236,6 @@ NUM_SIZE        .FILL #0    ; Digits entered into NUM_STACK
 ;   -= OTHER =-
 DECIMAL_TO_CHAR .FILL #48
 CHAR_TO_DECIMAL .FILL #-48
-
-;   -= VALUES =-
-TEN_THOUSAND    .FILL #10000
-THOUSAND        .FILL #1000
-HUNDRED         .FILL #100
-TENS            .FILL #10
-ONES            .FILL #1
 
 ; ================================================================================
 ; ===============              END OF INITALIZATION                ===============
@@ -230,9 +374,7 @@ TOS_CHECK       LD  R2, SIZE
 _TOS_PRINT      LEA R0, PRINT_TOS
                 PUTS
                 LD  R0, RESULT
-                LD  R1, DECIMAL_TO_CHAR
-                ADD R0, R0, R1
-                OUT
+                TRAP x29
                 BR INPUT_LOOP
       
 ; ================================================================================

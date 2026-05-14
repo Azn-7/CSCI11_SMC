@@ -6,7 +6,10 @@ LC-3 OBJ FILE
 0300
 0028
 1
-0312
+0311
+0029
+1
+032F
 0300
 5
 94BF
@@ -30,9 +33,143 @@ LC-3 OBJ FILE
 1245
 2BF3
 8000
+0320
+132
+2710
+03E8
+0064
+000A
+0001
+0000
+0000
+0000
+0000
+0000
+0000
+????
+????
+????
+0030
+31FB
+39FB
+3FFB
+E9F3
+23EC
+25F0
+927F
+1261
+1001
+0802
+14A1
+0FFC
+21F2
+1080
+7100
+21EC
+14A0
+0403
+1001
+14BF
+03FD
+31E6
+1921
+23DA
+25DD
+927F
+1261
+1001
+0802
+14A1
+0FFC
+21DF
+1080
+7100
+21D9
+14A0
+0403
+1001
+14BF
+03FD
+31D3
+1921
+23C8
+25CA
+927F
+1261
+1001
+0802
+14A1
+0FFC
+21CC
+1080
+7100
+21C6
+14A0
+0403
+1001
+14BF
+03FD
+31C0
+1921
+23B6
+25B7
+927F
+1261
+1001
+0802
+14A1
+0FFC
+21B9
+1080
+7100
+21B3
+14A0
+0403
+1001
+14BF
+03FD
+31AD
+1921
+23A4
+25A4
+927F
+1261
+1001
+0802
+14A1
+0FFC
+21A6
+1080
+7100
+21A0
+14A0
+0403
+1001
+14BF
+03FD
+319A
+1921
+E993
+6100
+F021
+1921
+6100
+F021
+1921
+6100
+F021
+1921
+6100
+F021
+1921
+6100
+F021
+298A
+2F8A
+8000
 3000
-452
-0EAA
+445
+0EA5
 000A
 003D
 003D
@@ -198,54 +335,49 @@ LC-3 OBJ FILE
 0000
 0030
 FFD0
-2710
-03E8
-0064
-000A
-0001
-E3EE
+E3F3
 5020
 7044
-29EA
-E187
+29EF
+E18C
 F022
-E166
+E16B
 F022
-21D7
+21DC
 F021
 F020
-4897
-4869
-485D
+4895
+4867
+485B
 0FFB
-39E6
-E9DE
+39EB
+E9E3
 5260
-33E5
+33EA
 F021
-23E5
+23EA
 1001
 7100
 1921
-23DF
+23E4
 1261
-33DD
+33E2
 127C
 0404
 F020
 4821
 4815
 0FF2
-21CB
+21D0
 F021
 4803
-29D1
-4871
+29D6
+486F
 0FE3
-3FCF
-E9C6
+3FD4
+E9CB
 5260
-27CD
+27D2
 16E0
 0406
 6100
@@ -256,84 +388,82 @@ F028
 0FF8
 1060
 C1C0
-23AF
+23B4
 927F
 1261
 1201
 03E3
-23A9
+23AE
 927F
 1261
 1201
 09DE
 C1C0
-23AC
+23B1
 927F
 1261
 1201
 05DC
-23A0
+23A5
 927F
 1261
 1201
 05D7
-239C
+23A1
 927F
 1261
 1201
 05D2
-2398
+239D
 927F
 1261
 1201
 05CD
-2394
+2399
 927F
 1261
 1201
 05C8
-2390
+2395
 927F
 1261
 1201
 05C3
 C1C0
-2594
-042D
+2599
+042B
 6100
 1A20
-3191
-E171
+3196
+E176
 F022
-218E
-2391
-1001
-F021
-0F9F
-2379
+2193
+F029
+0FA1
+2380
 927F
 1261
 1201
-039A
-2373
+039C
+237A
 927F
 1261
 1201
-0995
-0F99
-2375
+0997
+0F9B
+237C
 927F
 1261
 1201
 0406
-236E
+2375
 927F
 1261
 1201
-05DF
+05E1
 C1C0
 F021
-0F85
+0F87
 3001
 301A
 21FD
@@ -343,45 +473,45 @@ F022
 21F9
 F022
 5020
-3167
-0F72
-2153
+316E
+0F74
+215A
 F021
 0FF4
-2151
+2158
 F021
 0FF1
-214C
+2153
 F021
 0FEE
 193F
 7100
-255A
+2561
 14A1
-3558
+355F
 C1C0
 6100
 1921
-2554
+255B
 14BF
-3552
+3559
 C1C0
-2342
+2349
 927F
 1261
 1201
 0410
-233E
+2345
 927F
 1261
 1201
 040E
-233A
+2341
 927F
 1261
 1201
 040C
-2336
+233D
 927F
 1261
 1201
@@ -399,7 +529,7 @@ E623
 F021
 E63D
 0E00
-252F
+2536
 14BF
 0DC7
 4FD5
@@ -409,7 +539,7 @@ E63D
 5020
 40C0
 4FC9
-0F3B
+0F3D
 927F
 1261
 14A0
@@ -489,7 +619,40 @@ F025
 ADDR | EXT | LABEL
 0300 |   0 | FLIP_SIGNS
 0310 |   0 | SAVE_R5
-0312 |   0 | MULT_10
+0311 |   0 | MULT_10
+0320 |   0 | TEN_THOUSAND
+0321 |   0 | THOUSAND
+0322 |   0 | HUNDRED
+0323 |   0 | TENS
+0324 |   0 | ONES
+0325 |   0 | COUNT
+0326 |   0 | OUT_STACK
+032B |   0 | TMP_R0
+032C |   0 | TMP_R4
+032D |   0 | TMP_R7
+032E |   0 | DEC_TO_CHAR
+032F |   0 | OUT_NUM
+0337 |   0 | REPEAT_10K
+033B |   0 | END_10K
+0341 |   0 | END_10K_2
+0344 |   0 | FINISH_10K
+034A |   0 | REPEAT_1K
+034E |   0 | END_1K
+0354 |   0 | END_1K_2
+0357 |   0 | FINISH_1K
+035D |   0 | REPEAT_100
+0361 |   0 | END_100
+0367 |   0 | END_100_2
+036A |   0 | FINISH_100
+0370 |   0 | REPEAT_10
+0374 |   0 | END_10
+037A |   0 | END_10_2
+037D |   0 | FINISH_10
+0383 |   0 | REPEAT_1
+0387 |   0 | END_1
+038D |   0 | END_1_2
+0390 |   0 | FINISH_1
+0392 |   0 | FINISH_OUTPUT
 3001 |   0 | JUST_LINES
 3018 |   0 | NEW_LINE
 301A |   0 | ERROR_MESSAGE
@@ -518,68 +681,63 @@ ADDR | EXT | LABEL
 30A3 |   0 | NUM_SIZE
 30A4 |   0 | DECIMAL_TO_CHAR
 30A5 |   0 | CHAR_TO_DECIMAL
-30A6 |   0 | TEN_THOUSAND
-30A7 |   0 | THOUSAND
-30A8 |   0 | HUNDRED
-30A9 |   0 | TENS
-30AA |   0 | ONES
-30AB |   0 | START
-30B3 |   0 | PRE_INPUT
-30B5 |   0 | INPUT_LOOP
-30BA |   0 | START_NUM
-30BE |   0 | IS_NUM
-30C8 |   0 | REPEAT
-30CC |   0 | USER_DONE
-30D2 |   0 | NUM_COMPUTE
-30D6 |   0 | NUM_LOOP
-30DE |   0 | NUM_DONE
-30E0 |   0 | INVALID_NUM_CHK
-30EB |   0 | VALID_CHAR_CHK
-310A |   0 | TOS_CHECK
-310F |   0 | _TOS_PRINT
-3116 |   0 | NUM_CHK
-3121 |   0 | OTHER_CHAR_CHK
-312C |   0 | _HIT_ENTER
-312E |   0 | PTR_JUST_LINES
-312F |   0 | PTR_ERROR_MESSAGE
-3130 |   0 | ERROR
-3139 |   0 | ERROR_STACK
-313C |   0 | ERROR_NUM
-313F |   0 | ERROR_UNDEFINED
-3142 |   0 | PUSH
-3148 |   0 | POP
-314E |   0 | OPERATOR_CHK
-3163 |   0 | ADD_SUBROUTINE
-3166 |   0 | SUB_SUBROUTINE
-3169 |   0 | MUL_SUBROUTINE
-316C |   0 | DIV_SUBROUTINE
-316F |   0 | EXECUTE_OPERATOR
-3178 |   0 | IS_VALID
-317A |   0 | SUBTRACTION
-317C |   0 | ADDITION
-3180 |   0 | R2_IS_POS
-3183 |   0 | R2_IS_NEG
-3186 |   0 | POS_ADD
-3189 |   0 | NEG_ADD
-318C |   0 | REGULAR_ADD
-318E |   0 | MULTIPLICATION
-3192 |   0 | SKIP
-3196 |   0 | POS_MULT
-3199 |   0 | POS_MULT_NEXT
-319E |   0 | NEG_MULT
-31A1 |   0 | NEG_MULT_NEXT
-31A6 |   0 | TIMES_ZERO
-31A8 |   0 | TIMES_ONE
-31AA |   0 | FINISHED_MULT
-31AB |   0 | DIVISION
-31AF |   0 | DIV_CHK_R2
-31B4 |   0 | DIV_NEG_SETUP
-31B5 |   0 | DIV_NEG_LOOP
-31B9 |   0 | NEG_DONE
-31BC |   0 | DIV_POS_SETUP
-31BE |   0 | DIV_POS_LOOP
-31C2 |   0 | POS_DONE
-31C3 |   0 | END
+30A6 |   0 | START
+30AE |   0 | PRE_INPUT
+30B0 |   0 | INPUT_LOOP
+30B5 |   0 | START_NUM
+30B9 |   0 | IS_NUM
+30C3 |   0 | REPEAT
+30C7 |   0 | USER_DONE
+30CD |   0 | NUM_COMPUTE
+30D1 |   0 | NUM_LOOP
+30D9 |   0 | NUM_DONE
+30DB |   0 | INVALID_NUM_CHK
+30E6 |   0 | VALID_CHAR_CHK
+3105 |   0 | TOS_CHECK
+310A |   0 | _TOS_PRINT
+310F |   0 | NUM_CHK
+311A |   0 | OTHER_CHAR_CHK
+3125 |   0 | _HIT_ENTER
+3127 |   0 | PTR_JUST_LINES
+3128 |   0 | PTR_ERROR_MESSAGE
+3129 |   0 | ERROR
+3132 |   0 | ERROR_STACK
+3135 |   0 | ERROR_NUM
+3138 |   0 | ERROR_UNDEFINED
+313B |   0 | PUSH
+3141 |   0 | POP
+3147 |   0 | OPERATOR_CHK
+315C |   0 | ADD_SUBROUTINE
+315F |   0 | SUB_SUBROUTINE
+3162 |   0 | MUL_SUBROUTINE
+3165 |   0 | DIV_SUBROUTINE
+3168 |   0 | EXECUTE_OPERATOR
+3171 |   0 | IS_VALID
+3173 |   0 | SUBTRACTION
+3175 |   0 | ADDITION
+3179 |   0 | R2_IS_POS
+317C |   0 | R2_IS_NEG
+317F |   0 | POS_ADD
+3182 |   0 | NEG_ADD
+3185 |   0 | REGULAR_ADD
+3187 |   0 | MULTIPLICATION
+318B |   0 | SKIP
+318F |   0 | POS_MULT
+3192 |   0 | POS_MULT_NEXT
+3197 |   0 | NEG_MULT
+319A |   0 | NEG_MULT_NEXT
+319F |   0 | TIMES_ZERO
+31A1 |   0 | TIMES_ONE
+31A3 |   0 | FINISHED_MULT
+31A4 |   0 | DIVISION
+31A8 |   0 | DIV_CHK_R2
+31AD |   0 | DIV_NEG_SETUP
+31AE |   0 | DIV_NEG_LOOP
+31B2 |   0 | NEG_DONE
+31B5 |   0 | DIV_POS_SETUP
+31B7 |   0 | DIV_POS_LOOP
+31BB |   0 | POS_DONE
+31BC |   0 | END
 
 .LINKER_INFO
 
@@ -587,99 +745,127 @@ ADDR | EXT | LABEL
 # DEBUG SYMBOLS FOR LC3TOOLS
 
 LABEL             | INDEX
-FLIP_SIGNS        |   793
-SAVE_R5           |   993
-MULT_10           |  1071
-JUST_LINES        |  1565
-NEW_LINE          |  1618
-ERROR_MESSAGE     |  1649
-PROMPT_START      |  1706
-PRINT_TOS         |  1809
-_PROMPT_NEXT      |  1869
-_UNDEFINED_ERROR  |  1905
-_STACK_ERROR      |  1941
-_NUM_ERROR        |  1977
-_ZERO             |  2037
-_NINE             |  2072
-_ADD              |  2107
-_SUBTRACT         |  2142
-_MULTIPLY         |  2177
-_DIVIDE           |  2212
-_PERIOD           |  2247
-_COMMA            |  2282
-_ENTER            |  2317
-_SPACE            |  2358
-STACK             |  2428
-NUM_STACK         |  2470
-SIZE              |  2496
-RESULT            |  2541
-SAVE_R4           |  2594
-SAVE_R7           |  2667
-NUM_SIZE          |  2722
-DECIMAL_TO_CHAR   |  2802
-CHAR_TO_DECIMAL   |  2829
-TEN_THOUSAND      |  2877
-THOUSAND          |  2907
-HUNDRED           |  2936
-TENS              |  2964
-ONES              |  2991
-START             |  3453
-PRE_INPUT         |  3789
-INPUT_LOOP        |  3847
-START_NUM         |  4554
-IS_NUM            |  4736
-REPEAT            |  5181
-USER_DONE         |  5403
-NUM_COMPUTE       |  5720
-NUM_LOOP          |  5939
-NUM_DONE          |  6290
-INVALID_NUM_CHK   |  6396
-VALID_CHAR_CHK    |  6840
-TOS_CHECK         |  8191
-_TOS_PRINT        |  8418
-NUM_CHK           |  8894
-OTHER_CHAR_CHK    |  9387
-_HIT_ENTER        |  9865
-PTR_JUST_LINES    | 10277
-PTR_ERROR_MESSAGE | 10313
-ERROR             | 10354
-ERROR_STACK       | 10665
-ERROR_NUM         | 10753
-ERROR_UNDEFINED   | 10855
-PUSH              | 11222
-POP               | 11469
-OPERATOR_CHK      | 11954
-ADD_SUBROUTINE    | 12680
-SUB_SUBROUTINE    | 12791
-MUL_SUBROUTINE    | 12905
-DIV_SUBROUTINE    | 13022
-EXECUTE_OPERATOR  | 13117
-IS_VALID          | 13535
-SUBTRACTION       | 13856
-ADDITION          | 13946
-R2_IS_POS         | 14156
-R2_IS_NEG         | 14304
-POS_ADD           | 14468
-NEG_ADD           | 14607
-REGULAR_ADD       | 14950
-MULTIPLICATION    | 15163
-SKIP              | 15369
-POS_MULT          | 15529
-POS_MULT_NEXT     | 15654
-NEG_MULT          | 15963
-NEG_MULT_NEXT     | 16086
-TIMES_ZERO        | 16383
-TIMES_ONE         | 16454
-FINISHED_MULT     | 16525
-DIVISION          | 16688
-DIV_CHK_R2        | 16929
-DIV_NEG_SETUP     | 17236
-DIV_NEG_LOOP      | 17321
-NEG_DONE          | 17530
-DIV_POS_SETUP     | 17680
-DIV_POS_LOOP      | 17740
-POS_DONE          | 17949
-END               | 17972
+FLIP_SIGNS        |   893
+SAVE_R5           |  1093
+MULT_10           |  1138
+TEN_THOUSAND      |  1635
+THOUSAND          |  1665
+HUNDRED           |  1694
+TENS              |  1722
+ONES              |  1749
+COUNT             |  1775
+OUT_STACK         |  1801
+TMP_R0            |  1931
+TMP_R4            |  1957
+TMP_R7            |  1983
+DEC_TO_CHAR       |  2009
+OUT_NUM           |  2036
+REPEAT_10K        |  2348
+END_10K           |  2507
+END_10K_2         |  2820
+FINISH_10K        |  2941
+REPEAT_1K         |  3218
+END_1K            |  3373
+END_1K_2          |  3686
+FINISH_1K         |  3806
+REPEAT_100        |  4048
+END_100           |  4205
+END_100_2         |  4518
+FINISH_100        |  4639
+REPEAT_10         |  4875
+END_10            |  5030
+END_10_2          |  5342
+FINISH_10         |  5462
+REPEAT_1          |  5698
+END_1             |  5851
+END_1_2           |  6162
+FINISH_1          |  6281
+FINISH_OUTPUT     |  6363
+JUST_LINES        |  7069
+NEW_LINE          |  7122
+ERROR_MESSAGE     |  7153
+PROMPT_START      |  7210
+PRINT_TOS         |  7313
+_PROMPT_NEXT      |  7373
+_UNDEFINED_ERROR  |  7409
+_STACK_ERROR      |  7445
+_NUM_ERROR        |  7481
+_ZERO             |  7541
+_NINE             |  7576
+_ADD              |  7611
+_SUBTRACT         |  7646
+_MULTIPLY         |  7681
+_DIVIDE           |  7716
+_PERIOD           |  7751
+_COMMA            |  7786
+_ENTER            |  7821
+_SPACE            |  7862
+STACK             |  7932
+NUM_STACK         |  7974
+SIZE              |  8000
+RESULT            |  8045
+SAVE_R4           |  8098
+SAVE_R7           |  8171
+NUM_SIZE          |  8226
+DECIMAL_TO_CHAR   |  8306
+CHAR_TO_DECIMAL   |  8333
+START             |  8797
+PRE_INPUT         |  9133
+INPUT_LOOP        |  9191
+START_NUM         |  9898
+IS_NUM            | 10080
+REPEAT            | 10525
+USER_DONE         | 10747
+NUM_COMPUTE       | 11064
+NUM_LOOP          | 11283
+NUM_DONE          | 11634
+INVALID_NUM_CHK   | 11740
+VALID_CHAR_CHK    | 12184
+TOS_CHECK         | 13535
+_TOS_PRINT        | 13762
+NUM_CHK           | 14170
+OTHER_CHAR_CHK    | 14663
+_HIT_ENTER        | 15141
+PTR_JUST_LINES    | 15553
+PTR_ERROR_MESSAGE | 15589
+ERROR             | 15630
+ERROR_STACK       | 15941
+ERROR_NUM         | 16029
+ERROR_UNDEFINED   | 16131
+PUSH              | 16498
+POP               | 16745
+OPERATOR_CHK      | 17230
+ADD_SUBROUTINE    | 17956
+SUB_SUBROUTINE    | 18067
+MUL_SUBROUTINE    | 18181
+DIV_SUBROUTINE    | 18298
+EXECUTE_OPERATOR  | 18393
+IS_VALID          | 18811
+SUBTRACTION       | 19132
+ADDITION          | 19222
+R2_IS_POS         | 19432
+R2_IS_NEG         | 19580
+POS_ADD           | 19744
+NEG_ADD           | 19883
+REGULAR_ADD       | 20226
+MULTIPLICATION    | 20439
+SKIP              | 20645
+POS_MULT          | 20805
+POS_MULT_NEXT     | 20930
+NEG_MULT          | 21239
+NEG_MULT_NEXT     | 21362
+TIMES_ZERO        | 21659
+TIMES_ONE         | 21730
+FINISHED_MULT     | 21801
+DIVISION          | 21964
+DIV_CHK_R2        | 22205
+DIV_NEG_SETUP     | 22512
+DIV_NEG_LOOP      | 22597
+NEG_DONE          | 22806
+DIV_POS_SETUP     | 22956
+DIV_POS_LOOP      | 23016
+POS_DONE          | 23225
+END               | 23248
 ====================
 LINE | ADDR | SOURCE
    0 | ???? | ; REGISTERS\r\n
@@ -704,515 +890,657 @@ LINE | ADDR | SOURCE
   19 | 0028 |                 .FILL MULT_10\r\n
   20 | ???? |                 .end\r\n
   21 | ???? |                 \r\n
-  22 | ???? |                 .ORIG x300\r\n
-  23 | 0300 | FLIP_SIGNS      NOT R2, R2\r\n
-  24 | 0301 |                 ADD R2, R2, #1\r\n
-  25 | 0302 |                 NOT R1, R1\r\n
-  26 | 0303 |                 ADD R1, R1, #1\r\n
-  27 | 0304 |                 RTI\r\n
-  28 | ???? |                 .end\r\n
-  29 | ???? |        \r\n
-  30 | ???? |                 .ORIG x310\r\n
-  31 | 0310 | SAVE_R5         .BLKW #1    ; Save Result\r\n
-  32 | ???? | \r\n
-  33 | 0311 |                 ST  R5, SAVE_R5\r\n
-  34 | 0312 | MULT_10         ADD R5, R1, #0      ;   R1 = R1 * 10\r\n
-  35 | 0313 |                 ADD R1, R1, R5\r\n
-  36 | 0314 |                 ADD R1, R1, R5\r\n
-  37 | 0315 |                 ADD R1, R1, R5\r\n
-  38 | 0316 |                 ADD R1, R1, R5\r\n
-  39 | 0317 |                 ADD R1, R1, R5\r\n
-  40 | 0318 |                 ADD R1, R1, R5\r\n
-  41 | 0319 |                 ADD R1, R1, R5\r\n
-  42 | 031A |                 ADD R1, R1, R5\r\n
-  43 | 031B |                 ADD R1, R1, R5\r\n
-  44 | 031C |                 LD  R5, SAVE_R5\r\n
-  45 | 031D |                 RTI\r\n
-  46 | ???? |                 .end\r\n
-  47 | ???? | \r\n
-  48 | ???? |                 .ORIG x3000\r\n
-  49 | 3000 |                 BR START\r\n
-  50 | ???? | ;   -= STRINGS =-\r\n
-  51 | 3001 | JUST_LINES      .stringz \"\\n====================\\n\"\r\n
-  52 | 3018 | NEW_LINE        .stringz \"\\n\"\r\n
-  53 | 301A | ERROR_MESSAGE   .stringz \"ERROR. RESTARTING PROGRAM...\"\r\n
-  54 | 3037 | PROMPT_START    .stringz \"SMC RPN calculator\\nEnter 0-9 or +, -, *, /, or . to display result on TOS\"\r\n
-  55 | 3081 | PRINT_TOS       .stringz \"\\nResult: \"\r\n
-  56 | ???? | \r\n
-  57 | ???? | ;   -= PROMPTS =-\r\n
-  58 | 308B | _PROMPT_NEXT     .FILL x3E   ; \'>\'\r\n
-  59 | 308C | _UNDEFINED_ERROR .FILL x3F   ; \'?\'\r\n
-  60 | 308D | _STACK_ERROR     .FILL x24   ; \'$\'\r\n
-  61 | 308E | _NUM_ERROR       .FILL x21   ; \'!\'\r\n
-  62 | ???? | \r\n
-  63 | ???? | ;   -= VALID CHAR =-\r\n
-  64 | 308F | _ZERO           .FILL x30   ; \'0\'\r\n
-  65 | 3090 | _NINE           .FILL x39   ; \'9\'\r\n
-  66 | 3091 | _ADD            .FILL x2B   ; \'+\'\r\n
-  67 | 3092 | _SUBTRACT       .FILL x2D   ; \'-\'\r\n
-  68 | 3093 | _MULTIPLY       .FILL x2A   ; \'*\'\r\n
-  69 | 3094 | _DIVIDE         .FILL x2F   ; \'/\'\r\n
-  70 | 3095 | _PERIOD         .FILL x2E   ; \".\"\r\n
-  71 | 3096 | _COMMA          .FILL x2C   ; \",\"\r\n
-  72 | 3097 | _ENTER          .FILL x0A   ; ENTER KEY\r\n
-  73 | 3098 | _SPACE          .FILL x20   ; \" \" (SPACE KEY)\r\n
-  74 | ???? | \r\n
-  75 | ???? | ;   -= VARIABLES =-\r\n
-  76 | 3099 | STACK           .FILL x4000 ; Main Stack\r\n
-  77 | 309A | NUM_STACK       .BLKW #5\r\n
-  78 | 309F | SIZE            .FILL #0    ; SIZE OF STACK\r\n
-  79 | 30A0 | RESULT          .FILL #0    ; Saved result from TOS\r\n
-  80 | 30A1 | SAVE_R4         .BLKW #1    ; Switching from regular stack to num stack\r\n
-  81 | 30A2 | SAVE_R7         .BLKW #1    ; R7 save for NUM_COMPUTE\r\n
-  82 | 30A3 | NUM_SIZE        .FILL #0    ; Digits entered into NUM_STACK\r\n
-  83 | ???? | \r\n
-  84 | ???? | ;   -= OTHER =-\r\n
-  85 | 30A4 | DECIMAL_TO_CHAR .FILL #48\r\n
-  86 | 30A5 | CHAR_TO_DECIMAL .FILL #-48\r\n
-  87 | ???? | \r\n
-  88 | ???? | ;   -= VALUES =-\r\n
-  89 | 30A6 | TEN_THOUSAND    .FILL #10000\r\n
-  90 | 30A7 | THOUSAND        .FILL #1000\r\n
-  91 | 30A8 | HUNDRED         .FILL #100\r\n
-  92 | 30A9 | TENS            .FILL #10\r\n
-  93 | 30AA | ONES            .FILL #1\r\n
+  22 | ???? |                 .ORIG x0029\r\n
+  23 | 0029 |                 .FILL OUT_NUM\r\n
+  24 | ???? |                 .end\r\n
+  25 | ???? |                 \r\n
+  26 | ???? |                 .ORIG x300\r\n
+  27 | 0300 | FLIP_SIGNS      NOT R2, R2\r\n
+  28 | 0301 |                 ADD R2, R2, #1\r\n
+  29 | 0302 |                 NOT R1, R1\r\n
+  30 | 0303 |                 ADD R1, R1, #1\r\n
+  31 | 0304 |                 RTI\r\n
+  32 | ???? |                 .end\r\n
+  33 | ???? |        \r\n
+  34 | ???? |                 .ORIG x310\r\n
+  35 | 0310 | SAVE_R5         .BLKW #1    ; Save Result\r\n
+  36 | ???? | \r\n
+  37 | 0311 | MULT_10         ST  R5, SAVE_R5\r\n
+  38 | 0312 |                 ADD R5, R1, #0      ;   R1 = R1 * 10\r\n
+  39 | 0313 |                 ADD R1, R1, R5\r\n
+  40 | 0314 |                 ADD R1, R1, R5\r\n
+  41 | 0315 |                 ADD R1, R1, R5\r\n
+  42 | 0316 |                 ADD R1, R1, R5\r\n
+  43 | 0317 |                 ADD R1, R1, R5\r\n
+  44 | 0318 |                 ADD R1, R1, R5\r\n
+  45 | 0319 |                 ADD R1, R1, R5\r\n
+  46 | 031A |                 ADD R1, R1, R5\r\n
+  47 | 031B |                 ADD R1, R1, R5\r\n
+  48 | 031C |                 LD  R5, SAVE_R5\r\n
+  49 | 031D |                 RTI\r\n
+  50 | ???? |                 .end\r\n
+  51 | ???? |                 \r\n
+  52 | ???? |                 .ORIG x320\r\n
+  53 | 0320 | TEN_THOUSAND    .FILL #10000\r\n
+  54 | 0321 | THOUSAND        .FILL #1000\r\n
+  55 | 0322 | HUNDRED         .FILL #100\r\n
+  56 | 0323 | TENS            .FILL #10\r\n
+  57 | 0324 | ONES            .FILL #1\r\n
+  58 | 0325 | COUNT           .FILL #0\r\n
+  59 | 0326 | OUT_STACK       .FILL #0\r\n
+  60 | 0327 |                 .FILL #0\r\n
+  61 | 0328 |                 .FILL #0\r\n
+  62 | 0329 |                 .FILL #0\r\n
+  63 | 032A |                 .FILL #0\r\n
+  64 | 032B | TMP_R0          .BLKW #1\r\n
+  65 | 032C | TMP_R4          .BLKW #1\r\n
+  66 | 032D | TMP_R7          .BLKW #1\r\n
+  67 | 032E | DEC_TO_CHAR     .FILL #48\r\n
+  68 | 032F | OUT_NUM         ST  R0, TMP_R0\r\n
+  69 | 0330 |                 ST  R4, TMP_R4\r\n
+  70 | 0331 |                 ST  R7, TMP_R7\r\n
+  71 | 0332 |                 LEA R4, OUT_STACK\r\n
+  72 | ???? |                 \r\n
+  73 | ???? |                 \r\n
+  74 | ???? | ; TEN_THOUSAND\r\n
+  75 | 0333 |                 LD  R1, TEN_THOUSAND\r\n
+  76 | 0334 |                 LD  R2, COUNT\r\n
+  77 | 0335 |                 NOT R1, R1\r\n
+  78 | 0336 |                 ADD R1, R1, #1\r\n
+  79 | 0337 | REPEAT_10K      ADD R0, R0, R1      ; R0 - 10,000\r\n
+  80 | 0338 |                 BRn END_10K\r\n
+  81 | 0339 |                 ADD R2, R2, #1      ; COUNT++\r\n
+  82 | 033A |                 BR  REPEAT_10K\r\n
+  83 | 033B | END_10K         LD  R0, DEC_TO_CHAR\r\n
+  84 | 033C |                 ADD R0, R2, R0\r\n
+  85 | 033D |                 STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]\r\n
+  86 | 033E |                 LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT\r\n
+  87 | 033F |                 ADD R2, R2, #0\r\n
+  88 | 0340 |                 BRz FINISH_10K      ; CHECK IF VALID TO REMOVE FIRST\r\n
+  89 | 0341 | END_10K_2       ADD R0, R0, R1      ; SUB\r\n
+  90 | 0342 |                 ADD R2, R2, #-1     ; COUNT--\r\n
+  91 | 0343 |                 BRp END_10K_2\r\n
+  92 | 0344 | FINISH_10K      ST  R0, TMP_R0      ; UPDATE CURRENT RESULT\r\n
+  93 | 0345 |                 ADD R4, R4, #1      ; MOVE POINTER\r\n
   94 | ???? | \r\n
-  95 | ???? | ; ================================================================================\r\n
-  96 | ???? | ; ===============              END OF INITALIZATION                ===============\r\n
-  97 | ???? | ; ================================================================================\r\n
-  98 | ???? | ; ===============                MAIN PROGRAM                       ==============\r\n
-  99 | ???? | ; ================================================================================\r\n
- 100 | ???? |             \r\n
- 101 | 30AB | START           LEA R1, NUM_STACK   ;   ADD NULL-TERMINATE VALUE TO NUM_STACK\r\n
- 102 | 30AC |                 AND R0, R0, #0\r\n
- 103 | 30AD |                 STR R0, R1, #4\r\n
- 104 | 30AE |                 LD  R4, STACK       ;   ASSIGN MAIN STACK\r\n
- 105 | 30AF |                 LEA R0, PROMPT_START\r\n
- 106 | 30B0 |                 PUTS\r\n
- 107 | 30B1 |                 LEA R0, NEW_LINE\r\n
- 108 | 30B2 |                 PUTS\r\n
- 109 | ???? |                 \r\n
- 110 | 30B3 | PRE_INPUT       LD R0, _PROMPT_NEXT\r\n
- 111 | 30B4 |                 OUT\r\n
- 112 | 30B5 | INPUT_LOOP      GETC                ;   GETC & OUT\r\n
- 113 | 30B6 |                 JSR OPERATOR_CHK    ;   CHECK FOR OPERATORS\r\n
- 114 | 30B7 |                 JSR OTHER_CHAR_CHK  ;   CHECK FOR PERIOD \".\" OR ENTER_KEY\r\n
- 115 | 30B8 |                 JSR NUM_CHK         ;   CHECK FOR NUMBERS (0-9)\r\n
- 116 | 30B9 |                 BR  INPUT_LOOP      ;   INPUT IS INVALID, REPEATS \r\n
- 117 | ???? | \r\n
- 118 | ???? | ; ================================================================================\r\n
- 119 | ???? | ; ================               NUMBER INPUT                     ================\r\n
- 120 | ???? | ; ================================================================================\r\n
- 121 | ???? | ; R0 = CURRENT VALUE\r\n
- 122 | ???? | ; R1 = (FREE)\r\n
- 123 | ???? | ; R2 = (FREE)\r\n
- 124 | ???? | ; R3 = NUM_SIZE (For Stage 3a)\r\n
- 125 | ???? | ; R4 = NUM_STACK\r\n
- 126 | ???? | \r\n
- 127 | ???? | ;   -= 1. INITALIZATION =-\r\n
- 128 | 30BA | START_NUM       ST  R4, SAVE_R4\r\n
- 129 | 30BB |                 LEA R4, NUM_STACK\r\n
- 130 | 30BC |                 AND R1, R1, #0\r\n
- 131 | 30BD |                 ST  R1, NUM_SIZE    ;   RESET DIGIT COUNTER\r\n
- 132 | ???? | \r\n
- 133 | ???? | ;   -= 2. LOOP =-\r\n
- 134 | 30BE | IS_NUM          OUT\r\n
- 135 | 30BF |                 LD  R1, CHAR_TO_DECIMAL\r\n
- 136 | 30C0 |                 ADD R0, R0, R1       ;   CONVERT ASCII TO DECIMAL\r\n
- 137 | 30C1 |                 STR R0, R4, #0       ;   STORE DIGIT\r\n
- 138 | 30C2 |                 ADD R4, R4, #1\r\n
- 139 | 30C3 |                 LD  R1, NUM_SIZE     ;   NUM_SIZE++\r\n
- 140 | 30C4 |                 ADD R1, R1, #1\r\n
- 141 | 30C5 |                 ST  R1, NUM_SIZE     ;   SAVE\r\n
- 142 | 30C6 |                 ADD R1, R1, #-4\r\n
- 143 | 30C7 |                 BRz USER_DONE        ;   FORCE DONE AT 4 DIGITS\r\n
- 144 | 30C8 | REPEAT          GETC\r\n
- 145 | 30C9 |                 JSR VALID_CHAR_CHK   ;   CHECK FOR SPACE or OPERATORS (Quick end)\r\n
- 146 | 30CA |                 JSR INVALID_NUM_CHK  ;   CHECK FOR ANOTHER DIGIT\r\n
- 147 | 30CB |                 BR  IS_NUM\r\n
- 148 | ???? | \r\n
- 149 | ???? | ;   -= 3. FINISH =-\r\n
- 150 | 30CC | USER_DONE       LD  R0, _SPACE      ;   Auto inputs a space to prevent user from typing more than 4 digits\r\n
- 151 | 30CD |                 OUT\r\n
- 152 | 30CE |                 JSR NUM_COMPUTE\r\n
- 153 | 30CF |                 LD  R4, SAVE_R4     ;   Restore Main Stack\r\n
- 154 | 30D0 |                 JSR PUSH\r\n
- 155 | 30D1 |                 BR  INPUT_LOOP\r\n
- 156 | ???? |   \r\n
- 157 | ???? | ;   -= 3a. COMPUTING STAGE =-\r\n
- 158 | ???? | \r\n
- 159 | 30D2 | NUM_COMPUTE     ST  R7, SAVE_R7     ;   For PUSH\r\n
- 160 | 30D3 |                 LEA R4, NUM_STACK   ;   Return pointer back to begining of digit\r\n
- 161 | 30D4 |                 AND R1, R1, #0      ;   R1 = Result\r\n
- 162 | 30D5 |                 LD  R3, NUM_SIZE\r\n
- 163 | 30D6 | NUM_LOOP        ADD R3, R3, #0\r\n
- 164 | 30D7 |                 BRz NUM_DONE\r\n
- 165 | 30D8 |                 LDR R0, R4, #0      ;   R0 = next decimal digit\r\n
- 166 | 30D9 |                 ADD R4, R4, #1\r\n
- 167 | 30DA |                 ADD R3, R3, #-1\r\n
- 168 | 30DB |                 TRAP x28            ;   MULT_10\r\n
- 169 | 30DC |                 ADD R1, R1, R0      ;   ADD TOGETHER (Ex. 1 + 10 + 100 + 1000)\r\n
- 170 | 30DD |                 BR  NUM_LOOP\r\n
- 171 | 30DE | NUM_DONE        ADD R0, R1, #0      ;   PUSH uses R0\r\n
- 172 | 30DF |                 RET\r\n
- 173 | ???? | \r\n
- 174 | ???? | ;   -= FUNCTION CHECKS =-\r\n
- 175 | ???? | \r\n
- 176 | 30E0 | INVALID_NUM_CHK  LD  R1, _NINE       ;   R0 = \'9\'\r\n
- 177 | 30E1 |                 NOT R1, R1\r\n
- 178 | 30E2 |                 ADD R1, R1, #1\r\n
- 179 | 30E3 |                 ADD R1, R0, R1\r\n
- 180 | 30E4 |                 BRp REPEAT          ;   INPUT WAS INVALID, IGNORES\r\n
- 181 | 30E5 |                 LD  R1, _ZERO       ;   R0 = \'0\'\r\n
- 182 | 30E6 |                 NOT R1, R1\r\n
- 183 | 30E7 |                 ADD R1, R1, #1\r\n
- 184 | 30E8 |                 ADD R1, R0, R1\r\n
- 185 | 30E9 |                 BRn REPEAT          ;   INPUT WAS INVALID, IGNORES\r\n
- 186 | 30EA |                 RET\r\n
- 187 | ???? | \r\n
- 188 | 30EB | VALID_CHAR_CHK  LD  R1, _SPACE      ;   RO = \" \"\r\n
- 189 | 30EC |                 NOT R1, R1\r\n
- 190 | 30ED |                 ADD R1, R1, #1\r\n
- 191 | 30EE |                 ADD R1, R0, R1\r\n
- 192 | 30EF |                 BRz USER_DONE\r\n
- 193 | 30F0 |                 LD  R1, _ADD        ;   RO = \"+\"\r\n
- 194 | 30F1 |                 NOT R1, R1\r\n
- 195 | 30F2 |                 ADD R1, R1, #1\r\n
- 196 | 30F3 |                 ADD R1, R0, R1\r\n
- 197 | 30F4 |                 BRz USER_DONE\r\n
- 198 | 30F5 |                 LD  R1, _SUBTRACT   ;   RO = \"-\"\r\n
- 199 | 30F6 |                 NOT R1, R1\r\n
- 200 | 30F7 |                 ADD R1, R1, #1\r\n
- 201 | 30F8 |                 ADD R1, R0, R1\r\n
- 202 | 30F9 |                 BRz USER_DONE\r\n
- 203 | 30FA |                 LD  R1, _MULTIPLY   ;   RO = \"*\"\r\n
- 204 | 30FB |                 NOT R1, R1\r\n
- 205 | 30FC |                 ADD R1, R1, #1\r\n
- 206 | 30FD |                 ADD R1, R0, R1\r\n
- 207 | 30FE |                 BRz USER_DONE\r\n
- 208 | 30FF |                 LD  R1, _DIVIDE     ;   RO = \"/\"\r\n
- 209 | 3100 |                 NOT R1, R1\r\n
- 210 | 3101 |                 ADD R1, R1, #1\r\n
- 211 | 3102 |                 ADD R1, R0, R1\r\n
- 212 | 3103 |                 BRz USER_DONE\r\n
- 213 | 3104 |                 LD  R1, _PERIOD     ;   RO = \".\"\r\n
- 214 | 3105 |                 NOT R1, R1\r\n
- 215 | 3106 |                 ADD R1, R1, #1\r\n
- 216 | 3107 |                 ADD R1, R0, R1\r\n
- 217 | 3108 |                 BRz USER_DONE\r\n
- 218 | 3109 |                 RET                 ;   NO SPECIAL CHAR\r\n
- 219 | ???? | \r\n
- 220 | ???? | ; ================================================================================\r\n
- 221 | ???? | ; ================               TOS FUNCTION                     ================\r\n
- 222 | ???? | ; ================================================================================\r\n
- 223 | ???? | \r\n
- 224 | 310A | TOS_CHECK       LD  R2, SIZE\r\n
- 225 | 310B |                 BRz ERROR_STACK     ;   EMPTY STACK -> ERROR (Can\'t check empty)\r\n
- 226 | 310C |                 LDR R0, R4, #0      ;   TOS value\r\n
- 227 | 310D |                 ADD R5, R0, #0\r\n
- 228 | 310E |                 ST  R0, RESULT\r\n
- 229 | 310F | _TOS_PRINT      LEA R0, PRINT_TOS\r\n
- 230 | 3110 |                 PUTS\r\n
- 231 | 3111 |                 LD  R0, RESULT\r\n
- 232 | 3112 |                 LD  R1, DECIMAL_TO_CHAR\r\n
- 233 | 3113 |                 ADD R0, R0, R1\r\n
- 234 | 3114 |                 OUT\r\n
- 235 | 3115 |                 BR INPUT_LOOP\r\n
- 236 | ???? |       \r\n
- 237 | ???? | ; ================================================================================\r\n
- 238 | ???? | ; ================                FUNCTIONS                       ================\r\n
+  95 | ???? | ; THOUSAND\r\n
+  96 | 0346 |                 LD  R1, THOUSAND\r\n
+  97 | 0347 |                 LD  R2, COUNT       ; START COUNT OVER\r\n
+  98 | 0348 |                 NOT R1, R1\r\n
+  99 | 0349 |                 ADD R1, R1, #1\r\n
+ 100 | 034A | REPEAT_1K       ADD R0, R0, R1      ; R0 - 1000\r\n
+ 101 | 034B |                 BRn END_1K\r\n
+ 102 | 034C |                 ADD R2, R2, #1      ; COUNT++\r\n
+ 103 | 034D |                 BR  REPEAT_1K\r\n
+ 104 | 034E | END_1K          LD  R0, DEC_TO_CHAR\r\n
+ 105 | 034F |                 ADD R0, R2, R0\r\n
+ 106 | 0350 |                 STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]\r\n
+ 107 | 0351 |                 LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT\r\n
+ 108 | 0352 |                 ADD R2, R2, #0\r\n
+ 109 | 0353 |                 BRz FINISH_1K       ; CHECK IF VALID TO REMOVE FIRST\r\n
+ 110 | 0354 | END_1K_2        ADD R0, R0, R1      ; SUB\r\n
+ 111 | 0355 |                 ADD R2, R2, #-1     ; COUNT--\r\n
+ 112 | 0356 |                 BRp END_1K_2\r\n
+ 113 | 0357 | FINISH_1K       ST  R0, TMP_R0\r\n
+ 114 | 0358 |                 ADD R4, R4, #1\r\n
+ 115 | ???? |                 \r\n
+ 116 | ???? | ; HUNDRED\r\n
+ 117 | 0359 |                 LD  R1, HUNDRED\r\n
+ 118 | 035A |                 LD  R2, COUNT       ; START COUNT OVER\r\n
+ 119 | 035B |                 NOT R1, R1\r\n
+ 120 | 035C |                 ADD R1, R1, #1\r\n
+ 121 | 035D | REPEAT_100      ADD R0, R0, R1      ; R0 - 1000\r\n
+ 122 | 035E |                 BRn END_100\r\n
+ 123 | 035F |                 ADD R2, R2, #1      ; COUNT++\r\n
+ 124 | 0360 |                 BR  REPEAT_100\r\n
+ 125 | 0361 | END_100         LD  R0, DEC_TO_CHAR\r\n
+ 126 | 0362 |                 ADD R0, R2, R0\r\n
+ 127 | 0363 |                 STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]\r\n
+ 128 | 0364 |                 LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT\r\n
+ 129 | 0365 |                 ADD R2, R2, #0\r\n
+ 130 | 0366 |                 BRz FINISH_100      ; CHECK IF VALID TO REMOVE FIRST\r\n
+ 131 | 0367 | END_100_2       ADD R0, R0, R1      ; SUB\r\n
+ 132 | 0368 |                 ADD R2, R2, #-1     ; COUNT--\r\n
+ 133 | 0369 |                 BRp END_100_2\r\n
+ 134 | 036A | FINISH_100      ST  R0, TMP_R0\r\n
+ 135 | 036B |                 ADD R4, R4, #1\r\n
+ 136 | ???? |                 \r\n
+ 137 | ???? | ; TENS\r\n
+ 138 | 036C |                 LD  R1, TENS\r\n
+ 139 | 036D |                 LD  R2, COUNT       ; START COUNT OVER\r\n
+ 140 | 036E |                 NOT R1, R1\r\n
+ 141 | 036F |                 ADD R1, R1, #1\r\n
+ 142 | 0370 | REPEAT_10       ADD R0, R0, R1      ; R0 - 1000\r\n
+ 143 | 0371 |                 BRn END_10\r\n
+ 144 | 0372 |                 ADD R2, R2, #1      ; COUNT++\r\n
+ 145 | 0373 |                 BR  REPEAT_10\r\n
+ 146 | 0374 | END_10          LD  R0, DEC_TO_CHAR\r\n
+ 147 | 0375 |                 ADD R0, R2, R0\r\n
+ 148 | 0376 |                 STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]\r\n
+ 149 | 0377 |                 LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT\r\n
+ 150 | 0378 |                 ADD R2, R2, #0\r\n
+ 151 | 0379 |                 BRz FINISH_10      ; CHECK IF VALID TO REMOVE FIRST\r\n
+ 152 | 037A | END_10_2        ADD R0, R0, R1      ; SUB\r\n
+ 153 | 037B |                 ADD R2, R2, #-1     ; COUNT--\r\n
+ 154 | 037C |                 BRp END_10_2\r\n
+ 155 | 037D | FINISH_10       ST  R0, TMP_R0\r\n
+ 156 | 037E |                 ADD R4, R4, #1\r\n
+ 157 | ???? |                 \r\n
+ 158 | ???? | ; ONES\r\n
+ 159 | 037F |                 LD  R1, ONES\r\n
+ 160 | 0380 |                 LD  R2, COUNT       ; START COUNT OVER\r\n
+ 161 | 0381 |                 NOT R1, R1\r\n
+ 162 | 0382 |                 ADD R1, R1, #1\r\n
+ 163 | 0383 | REPEAT_1        ADD R0, R0, R1      ; R0 - 1000\r\n
+ 164 | 0384 |                 BRn END_1\r\n
+ 165 | 0385 |                 ADD R2, R2, #1      ; COUNT++\r\n
+ 166 | 0386 |                 BR  REPEAT_1\r\n
+ 167 | 0387 | END_1           LD  R0, DEC_TO_CHAR\r\n
+ 168 | 0388 |                 ADD R0, R2, R0\r\n
+ 169 | 0389 |                 STR R0, R4, #0      ; STORE COUNT ONTO STACK [HERE][][][][]\r\n
+ 170 | 038A |                 LD  R0, TMP_R0      ; REMOVE TEN_THOUSAND DIGIT\r\n
+ 171 | 038B |                 ADD R2, R2, #0\r\n
+ 172 | 038C |                 BRz FINISH_1      ; CHECK IF VALID TO REMOVE FIRST\r\n
+ 173 | 038D | END_1_2         ADD R0, R0, R1      ; SUB\r\n
+ 174 | 038E |                 ADD R2, R2, #-1     ; COUNT--\r\n
+ 175 | 038F |                 BRp END_1_2\r\n
+ 176 | 0390 | FINISH_1        ST  R0, TMP_R0\r\n
+ 177 | 0391 |                 ADD R4, R4, #1\r\n
+ 178 | ???? |                 \r\n
+ 179 | 0392 | FINISH_OUTPUT   LEA R4, OUT_STACK\r\n
+ 180 | 0393 |                 LDR R0, R4, #0      ; [!][][][][]\r\n
+ 181 | 0394 |                 OUT\r\n
+ 182 | 0395 |                 ADD R4, R4, #1\r\n
+ 183 | 0396 |                 LDR R0, R4, #0      ; [][!][][][]\r\n
+ 184 | 0397 |                 OUT\r\n
+ 185 | 0398 |                 ADD R4, R4, #1\r\n
+ 186 | 0399 |                 LDR R0, R4, #0      ; [][][!][][]\r\n
+ 187 | 039A |                 OUT\r\n
+ 188 | 039B |                 ADD R4, R4, #1\r\n
+ 189 | 039C |                 LDR R0, R4, #0      ; [][][][!][]\r\n
+ 190 | 039D |                 OUT\r\n
+ 191 | 039E |                 ADD R4, R4, #1\r\n
+ 192 | 039F |                 LDR R0, R4, #0      ; [][][][][!]\r\n
+ 193 | 03A0 |                 OUT\r\n
+ 194 | 03A1 |                 LD  R4, TMP_R4\r\n
+ 195 | 03A2 |                 LD  R7, TMP_R7\r\n
+ 196 | 03A3 |                 RTI\r\n
+ 197 | ???? |                 .end\r\n
+ 198 | ???? | \r\n
+ 199 | ???? |                 .ORIG x3000\r\n
+ 200 | 3000 |                 BR START\r\n
+ 201 | ???? | ;   -= STRINGS =-\r\n
+ 202 | 3001 | JUST_LINES      .stringz \"\\n====================\\n\"\r\n
+ 203 | 3018 | NEW_LINE        .stringz \"\\n\"\r\n
+ 204 | 301A | ERROR_MESSAGE   .stringz \"ERROR. RESTARTING PROGRAM...\"\r\n
+ 205 | 3037 | PROMPT_START    .stringz \"SMC RPN calculator\\nEnter 0-9 or +, -, *, /, or . to display result on TOS\"\r\n
+ 206 | 3081 | PRINT_TOS       .stringz \"\\nResult: \"\r\n
+ 207 | ???? | \r\n
+ 208 | ???? | ;   -= PROMPTS =-\r\n
+ 209 | 308B | _PROMPT_NEXT     .FILL x3E   ; \'>\'\r\n
+ 210 | 308C | _UNDEFINED_ERROR .FILL x3F   ; \'?\'\r\n
+ 211 | 308D | _STACK_ERROR     .FILL x24   ; \'$\'\r\n
+ 212 | 308E | _NUM_ERROR       .FILL x21   ; \'!\'\r\n
+ 213 | ???? | \r\n
+ 214 | ???? | ;   -= VALID CHAR =-\r\n
+ 215 | 308F | _ZERO           .FILL x30   ; \'0\'\r\n
+ 216 | 3090 | _NINE           .FILL x39   ; \'9\'\r\n
+ 217 | 3091 | _ADD            .FILL x2B   ; \'+\'\r\n
+ 218 | 3092 | _SUBTRACT       .FILL x2D   ; \'-\'\r\n
+ 219 | 3093 | _MULTIPLY       .FILL x2A   ; \'*\'\r\n
+ 220 | 3094 | _DIVIDE         .FILL x2F   ; \'/\'\r\n
+ 221 | 3095 | _PERIOD         .FILL x2E   ; \".\"\r\n
+ 222 | 3096 | _COMMA          .FILL x2C   ; \",\"\r\n
+ 223 | 3097 | _ENTER          .FILL x0A   ; ENTER KEY\r\n
+ 224 | 3098 | _SPACE          .FILL x20   ; \" \" (SPACE KEY)\r\n
+ 225 | ???? | \r\n
+ 226 | ???? | ;   -= VARIABLES =-\r\n
+ 227 | 3099 | STACK           .FILL x4000 ; Main Stack\r\n
+ 228 | 309A | NUM_STACK       .BLKW #5\r\n
+ 229 | 309F | SIZE            .FILL #0    ; SIZE OF STACK\r\n
+ 230 | 30A0 | RESULT          .FILL #0    ; Saved result from TOS\r\n
+ 231 | 30A1 | SAVE_R4         .BLKW #1    ; Switching from regular stack to num stack\r\n
+ 232 | 30A2 | SAVE_R7         .BLKW #1    ; R7 save for NUM_COMPUTE\r\n
+ 233 | 30A3 | NUM_SIZE        .FILL #0    ; Digits entered into NUM_STACK\r\n
+ 234 | ???? | \r\n
+ 235 | ???? | ;   -= OTHER =-\r\n
+ 236 | 30A4 | DECIMAL_TO_CHAR .FILL #48\r\n
+ 237 | 30A5 | CHAR_TO_DECIMAL .FILL #-48\r\n
+ 238 | ???? | \r\n
  239 | ???? | ; ================================================================================\r\n
- 240 | ???? | \r\n
- 241 | 3116 | NUM_CHK         LD  R1, _NINE       ;   R0 = \'9\'\r\n
- 242 | 3117 |                 NOT R1, R1\r\n
- 243 | 3118 |                 ADD R1, R1, #1\r\n
- 244 | 3119 |                 ADD R1, R0, R1\r\n
- 245 | 311A |                 BRp INPUT_LOOP      ;   IGNORE, INVALID INPUT (R0 > x39 (\'9\'))\r\n
- 246 | 311B |                 LD  R1, _ZERO       ;   R0 = \'0\'\r\n
- 247 | 311C |                 NOT R1, R1\r\n
- 248 | 311D |                 ADD R1, R1, #1\r\n
- 249 | 311E |                 ADD R1, R0, R1\r\n
- 250 | 311F |                 BRn INPUT_LOOP      ;   IGNORE, INVALID INPUT (R0 < x2A (\'0\'))\r\n
- 251 | 3120 |                 BR  START_NUM\r\n
- 252 | ???? |                 \r\n
- 253 | 3121 | OTHER_CHAR_CHK  LD  R1, _ENTER      ;   R0 = ENTER_KEY\r\n
- 254 | 3122 |                 NOT R1, R1\r\n
- 255 | 3123 |                 ADD R1, R1, #1\r\n
- 256 | 3124 |                 ADD R1, R0, R1\r\n
- 257 | 3125 |                 BRz _HIT_ENTER      ;   New line for additional expression\r\n
- 258 | 3126 |                 LD  R1, _PERIOD     ;   R0 = \'.\'\r\n
- 259 | 3127 |                 NOT R1, R1\r\n
- 260 | 3128 |                 ADD R1, R1, #1\r\n
- 261 | 3129 |                 ADD R1, R0, R1\r\n
- 262 | 312A |                 BRz TOS_CHECK       ;   Check Top of Stack if R0 == \'.\'\r\n
- 263 | 312B |                 RET\r\n
- 264 | ???? |                 \r\n
- 265 | 312C | _HIT_ENTER      OUT\r\n
- 266 | 312D |                 BR PRE_INPUT\r\n
- 267 | ???? | \r\n
- 268 | ???? | ; ================================================================================\r\n
- 269 | ???? | ; =============                ERROR FUNCTIONS                       =============\r\n
- 270 | ???? | ; ================================================================================\r\n
- 271 | ???? | ;   INTRODUCED POINTERS TO PREVENT INSTRUCTION DISTANCE ERROR (value is too big for signed 9-bit integer)\r\n
- 272 | 312E | PTR_JUST_LINES    .FILL JUST_LINES\r\n
- 273 | 312F | PTR_ERROR_MESSAGE .FILL ERROR_MESSAGE\r\n
- 274 | ???? | \r\n
- 275 | 3130 | ERROR           LD R0, PTR_JUST_LINES\r\n
- 276 | 3131 |                 PUTS\r\n
- 277 | 3132 |                 LD R0, PTR_ERROR_MESSAGE\r\n
- 278 | 3133 |                 PUTS\r\n
- 279 | 3134 |                 LD R0, PTR_JUST_LINES\r\n
- 280 | 3135 |                 PUTS\r\n
- 281 | 3136 |                 AND R0, R0, #0      ; Resets SIZE\r\n
- 282 | 3137 |                 ST  R0, SIZE\r\n
- 283 | 3138 |                 BR  START\r\n
- 284 | ???? |                \r\n
- 285 | 3139 | ERROR_STACK     LD  R0, _STACK_ERROR\r\n
- 286 | 313A |                 OUT\r\n
- 287 | 313B |                 BR  ERROR\r\n
- 288 | ???? | \r\n
- 289 | 313C | ERROR_NUM       LD  R0, _NUM_ERROR\r\n
- 290 | 313D |                 OUT\r\n
- 291 | 313E |                 BR  ERROR\r\n
- 292 | ???? |                 \r\n
- 293 | 313F | ERROR_UNDEFINED LD R0, _UNDEFINED_ERROR    ; Divide by 0 case\r\n
- 294 | 3140 |                 OUT\r\n
- 295 | 3141 |                 BR  ERROR\r\n
- 296 | ???? | \r\n
- 297 | ???? | ; ================================================================================\r\n
- 298 | ???? | ; =============                STACK FUNCTIONS                       =============\r\n
- 299 | ???? | ; ================================================================================\r\n
- 300 | ???? | \r\n
- 301 | 3142 | PUSH            ADD R4, R4, #-1     ;   Decrement\r\n
- 302 | 3143 |                 STR R0, R4, #0      ;   Store\r\n
- 303 | 3144 |                 LD  R2, SIZE        ;   SIZE++\r\n
- 304 | 3145 |                 ADD R2, R2, #1\r\n
- 305 | 3146 |                 ST  R2, SIZE\r\n
- 306 | 3147 |                 RET\r\n
- 307 | ???? |                 \r\n
- 308 | 3148 | POP             LDR R0, R4, #0      ;   Load\r\n
- 309 | 3149 |                 ADD R4, R4, #1      ;   Increment\r\n
- 310 | 314A |                 LD  R2, SIZE        ;   SIZE--\r\n
- 311 | 314B |                 ADD R2, R2, #-1\r\n
- 312 | 314C |                 ST  R2, SIZE\r\n
- 313 | 314D |                 RET\r\n
- 314 | ???? | \r\n
- 315 | ???? | ; ================================================================================\r\n
- 316 | ???? | ; ============                OPERATOR FUNCTIONS                       ===========\r\n
- 317 | ???? | ; ================================================================================\r\n
- 318 | ???? | \r\n
- 319 | 314E | OPERATOR_CHK    LD  R1, _ADD\r\n
- 320 | 314F |                 NOT R1, R1\r\n
- 321 | 3150 |                 ADD R1, R1, #1\r\n
- 322 | 3151 |                 ADD R1, R0, R1\r\n
- 323 | 3152 |                 BRz ADD_SUBROUTINE\r\n
- 324 | 3153 |                 LD  R1, _SUBTRACT\r\n
- 325 | 3154 |                 NOT R1, R1\r\n
- 326 | 3155 |                 ADD R1, R1, #1\r\n
- 327 | 3156 |                 ADD R1, R0, R1\r\n
- 328 | 3157 |                 BRz SUB_SUBROUTINE\r\n
- 329 | 3158 |                 LD  R1, _MULTIPLY\r\n
- 330 | 3159 |                 NOT R1, R1\r\n
- 331 | 315A |                 ADD R1, R1, #1\r\n
- 332 | 315B |                 ADD R1, R0, R1\r\n
- 333 | 315C |                 BRz MUL_SUBROUTINE\r\n
- 334 | 315D |                 LD  R1, _DIVIDE\r\n
- 335 | 315E |                 NOT R1, R1\r\n
- 336 | 315F |                 ADD R1, R1, #1\r\n
- 337 | 3160 |                 ADD R1, R0, R1\r\n
- 338 | 3161 |                 BRz DIV_SUBROUTINE\r\n
- 339 | 3162 |                 RET                 ;   NO OPERATOR WAS FOUND\r\n
- 340 | ???? |                 \r\n
- 341 | 3163 | ADD_SUBROUTINE  OUT\r\n
- 342 | 3164 |                 LEA R3, ADDITION\r\n
- 343 | 3165 |                 BR  EXECUTE_OPERATOR\r\n
- 344 | ???? |                 \r\n
- 345 | 3166 | SUB_SUBROUTINE  OUT\r\n
- 346 | 3167 |                 LEA R3, SUBTRACTION\r\n
- 347 | 3168 |                 BR  EXECUTE_OPERATOR\r\n
- 348 | ???? |                 \r\n
- 349 | 3169 | MUL_SUBROUTINE  OUT\r\n
- 350 | 316A |                 LEA R3, MULTIPLICATION\r\n
- 351 | 316B |                 BR  EXECUTE_OPERATOR\r\n
- 352 | ???? |                 \r\n
- 353 | 316C | DIV_SUBROUTINE  OUT\r\n
- 354 | 316D |                 LEA R3, DIVISION\r\n
- 355 | 316E |                 BR  EXECUTE_OPERATOR\r\n
- 356 | ???? | \r\n
- 357 | 316F | EXECUTE_OPERATOR LD  R2, SIZE\r\n
- 358 | 3170 |                 ADD  R2, R2, #-1\r\n
- 359 | 3171 |                 BRnz ERROR_STACK    ;   SIZE >= 2, else invalid computation\r\n
- 360 | 3172 |                 JSR  POP\r\n
- 361 | 3173 |                 ADD  R1, R0, #0     ;   (...) +-*/ (THIS)\r\n
- 362 | 3174 |                 JSR  POP\r\n
- 363 | 3175 |                 ADD  R2, R0, #0     ;   (THIS) +-*/ (...)\r\n
- 364 | 3176 |                 AND  R0, R0, #0\r\n
- 365 | 3177 |                 JSRR R3             ;   JUMP TO SAVED OPERATOR FUNCITON\r\n
- 366 | 3178 | IS_VALID        JSR  PUSH\r\n
- 367 | 3179 |                 BR   INPUT_LOOP\r\n
- 368 | ???? | \r\n
- 369 | ???? | ; ========================================================\r\n
- 370 | ???? | ; ============      ADDITION / SUBTRACTION    ============\r\n
- 371 | ???? | ; ========================================================\r\n
- 372 | ???? | ; R2+ & R1+ = (-)\r\n
- 373 | ???? | ; R2- & R1- = (+)\r\n
- 374 | ???? | ; Otherwise, do a regular add\r\n
- 375 | ???? |         \r\n
- 376 | 317A | SUBTRACTION     NOT R1, R1          ;   Flip signs of R1\r\n
- 377 | 317B |                 ADD R1, R1, #1\r\n
- 378 | 317C | ADDITION        ADD R2, R2, #0      ;   Check R2 Sign\r\n
- 379 | 317D |                 BRp R2_IS_POS       ;   (+) + (?)\r\n
- 380 | 317E |                 BRn R2_IS_NEG       ;   (-) + (?)\r\n
- 381 | 317F |                 BRz REGULAR_ADD     ;    0  + (?)\r\n
+ 240 | ???? | ; ===============              END OF INITALIZATION                ===============\r\n
+ 241 | ???? | ; ================================================================================\r\n
+ 242 | ???? | ; ===============                MAIN PROGRAM                       ==============\r\n
+ 243 | ???? | ; ================================================================================\r\n
+ 244 | ???? |             \r\n
+ 245 | 30A6 | START           LEA R1, NUM_STACK   ;   ADD NULL-TERMINATE VALUE TO NUM_STACK\r\n
+ 246 | 30A7 |                 AND R0, R0, #0\r\n
+ 247 | 30A8 |                 STR R0, R1, #4\r\n
+ 248 | 30A9 |                 LD  R4, STACK       ;   ASSIGN MAIN STACK\r\n
+ 249 | 30AA |                 LEA R0, PROMPT_START\r\n
+ 250 | 30AB |                 PUTS\r\n
+ 251 | 30AC |                 LEA R0, NEW_LINE\r\n
+ 252 | 30AD |                 PUTS\r\n
+ 253 | ???? |                 \r\n
+ 254 | 30AE | PRE_INPUT       LD R0, _PROMPT_NEXT\r\n
+ 255 | 30AF |                 OUT\r\n
+ 256 | 30B0 | INPUT_LOOP      GETC                ;   GETC & OUT\r\n
+ 257 | 30B1 |                 JSR OPERATOR_CHK    ;   CHECK FOR OPERATORS\r\n
+ 258 | 30B2 |                 JSR OTHER_CHAR_CHK  ;   CHECK FOR PERIOD \".\" OR ENTER_KEY\r\n
+ 259 | 30B3 |                 JSR NUM_CHK         ;   CHECK FOR NUMBERS (0-9)\r\n
+ 260 | 30B4 |                 BR  INPUT_LOOP      ;   INPUT IS INVALID, REPEATS \r\n
+ 261 | ???? | \r\n
+ 262 | ???? | ; ================================================================================\r\n
+ 263 | ???? | ; ================               NUMBER INPUT                     ================\r\n
+ 264 | ???? | ; ================================================================================\r\n
+ 265 | ???? | ; R0 = CURRENT VALUE\r\n
+ 266 | ???? | ; R1 = (FREE)\r\n
+ 267 | ???? | ; R2 = (FREE)\r\n
+ 268 | ???? | ; R3 = NUM_SIZE (For Stage 3a)\r\n
+ 269 | ???? | ; R4 = NUM_STACK\r\n
+ 270 | ???? | \r\n
+ 271 | ???? | ;   -= 1. INITALIZATION =-\r\n
+ 272 | 30B5 | START_NUM       ST  R4, SAVE_R4\r\n
+ 273 | 30B6 |                 LEA R4, NUM_STACK\r\n
+ 274 | 30B7 |                 AND R1, R1, #0\r\n
+ 275 | 30B8 |                 ST  R1, NUM_SIZE    ;   RESET DIGIT COUNTER\r\n
+ 276 | ???? | \r\n
+ 277 | ???? | ;   -= 2. LOOP =-\r\n
+ 278 | 30B9 | IS_NUM          OUT\r\n
+ 279 | 30BA |                 LD  R1, CHAR_TO_DECIMAL\r\n
+ 280 | 30BB |                 ADD R0, R0, R1       ;   CONVERT ASCII TO DECIMAL\r\n
+ 281 | 30BC |                 STR R0, R4, #0       ;   STORE DIGIT\r\n
+ 282 | 30BD |                 ADD R4, R4, #1\r\n
+ 283 | 30BE |                 LD  R1, NUM_SIZE     ;   NUM_SIZE++\r\n
+ 284 | 30BF |                 ADD R1, R1, #1\r\n
+ 285 | 30C0 |                 ST  R1, NUM_SIZE     ;   SAVE\r\n
+ 286 | 30C1 |                 ADD R1, R1, #-4\r\n
+ 287 | 30C2 |                 BRz USER_DONE        ;   FORCE DONE AT 4 DIGITS\r\n
+ 288 | 30C3 | REPEAT          GETC\r\n
+ 289 | 30C4 |                 JSR VALID_CHAR_CHK   ;   CHECK FOR SPACE or OPERATORS (Quick end)\r\n
+ 290 | 30C5 |                 JSR INVALID_NUM_CHK  ;   CHECK FOR ANOTHER DIGIT\r\n
+ 291 | 30C6 |                 BR  IS_NUM\r\n
+ 292 | ???? | \r\n
+ 293 | ???? | ;   -= 3. FINISH =-\r\n
+ 294 | 30C7 | USER_DONE       LD  R0, _SPACE      ;   Auto inputs a space to prevent user from typing more than 4 digits\r\n
+ 295 | 30C8 |                 OUT\r\n
+ 296 | 30C9 |                 JSR NUM_COMPUTE\r\n
+ 297 | 30CA |                 LD  R4, SAVE_R4     ;   Restore Main Stack\r\n
+ 298 | 30CB |                 JSR PUSH\r\n
+ 299 | 30CC |                 BR  INPUT_LOOP\r\n
+ 300 | ???? |   \r\n
+ 301 | ???? | ;   -= 3a. COMPUTING STAGE =-\r\n
+ 302 | ???? | \r\n
+ 303 | 30CD | NUM_COMPUTE     ST  R7, SAVE_R7     ;   For PUSH\r\n
+ 304 | 30CE |                 LEA R4, NUM_STACK   ;   Return pointer back to begining of digit\r\n
+ 305 | 30CF |                 AND R1, R1, #0      ;   R1 = Result\r\n
+ 306 | 30D0 |                 LD  R3, NUM_SIZE\r\n
+ 307 | 30D1 | NUM_LOOP        ADD R3, R3, #0\r\n
+ 308 | 30D2 |                 BRz NUM_DONE\r\n
+ 309 | 30D3 |                 LDR R0, R4, #0      ;   R0 = next decimal digit\r\n
+ 310 | 30D4 |                 ADD R4, R4, #1\r\n
+ 311 | 30D5 |                 ADD R3, R3, #-1\r\n
+ 312 | 30D6 |                 TRAP x28            ;   MULT_10\r\n
+ 313 | 30D7 |                 ADD R1, R1, R0      ;   ADD TOGETHER (Ex. 1 + 10 + 100 + 1000)\r\n
+ 314 | 30D8 |                 BR  NUM_LOOP\r\n
+ 315 | 30D9 | NUM_DONE        ADD R0, R1, #0      ;   PUSH uses R0\r\n
+ 316 | 30DA |                 RET\r\n
+ 317 | ???? | \r\n
+ 318 | ???? | ;   -= FUNCTION CHECKS =-\r\n
+ 319 | ???? | \r\n
+ 320 | 30DB | INVALID_NUM_CHK  LD  R1, _NINE       ;   R0 = \'9\'\r\n
+ 321 | 30DC |                 NOT R1, R1\r\n
+ 322 | 30DD |                 ADD R1, R1, #1\r\n
+ 323 | 30DE |                 ADD R1, R0, R1\r\n
+ 324 | 30DF |                 BRp REPEAT          ;   INPUT WAS INVALID, IGNORES\r\n
+ 325 | 30E0 |                 LD  R1, _ZERO       ;   R0 = \'0\'\r\n
+ 326 | 30E1 |                 NOT R1, R1\r\n
+ 327 | 30E2 |                 ADD R1, R1, #1\r\n
+ 328 | 30E3 |                 ADD R1, R0, R1\r\n
+ 329 | 30E4 |                 BRn REPEAT          ;   INPUT WAS INVALID, IGNORES\r\n
+ 330 | 30E5 |                 RET\r\n
+ 331 | ???? | \r\n
+ 332 | 30E6 | VALID_CHAR_CHK  LD  R1, _SPACE      ;   RO = \" \"\r\n
+ 333 | 30E7 |                 NOT R1, R1\r\n
+ 334 | 30E8 |                 ADD R1, R1, #1\r\n
+ 335 | 30E9 |                 ADD R1, R0, R1\r\n
+ 336 | 30EA |                 BRz USER_DONE\r\n
+ 337 | 30EB |                 LD  R1, _ADD        ;   RO = \"+\"\r\n
+ 338 | 30EC |                 NOT R1, R1\r\n
+ 339 | 30ED |                 ADD R1, R1, #1\r\n
+ 340 | 30EE |                 ADD R1, R0, R1\r\n
+ 341 | 30EF |                 BRz USER_DONE\r\n
+ 342 | 30F0 |                 LD  R1, _SUBTRACT   ;   RO = \"-\"\r\n
+ 343 | 30F1 |                 NOT R1, R1\r\n
+ 344 | 30F2 |                 ADD R1, R1, #1\r\n
+ 345 | 30F3 |                 ADD R1, R0, R1\r\n
+ 346 | 30F4 |                 BRz USER_DONE\r\n
+ 347 | 30F5 |                 LD  R1, _MULTIPLY   ;   RO = \"*\"\r\n
+ 348 | 30F6 |                 NOT R1, R1\r\n
+ 349 | 30F7 |                 ADD R1, R1, #1\r\n
+ 350 | 30F8 |                 ADD R1, R0, R1\r\n
+ 351 | 30F9 |                 BRz USER_DONE\r\n
+ 352 | 30FA |                 LD  R1, _DIVIDE     ;   RO = \"/\"\r\n
+ 353 | 30FB |                 NOT R1, R1\r\n
+ 354 | 30FC |                 ADD R1, R1, #1\r\n
+ 355 | 30FD |                 ADD R1, R0, R1\r\n
+ 356 | 30FE |                 BRz USER_DONE\r\n
+ 357 | 30FF |                 LD  R1, _PERIOD     ;   RO = \".\"\r\n
+ 358 | 3100 |                 NOT R1, R1\r\n
+ 359 | 3101 |                 ADD R1, R1, #1\r\n
+ 360 | 3102 |                 ADD R1, R0, R1\r\n
+ 361 | 3103 |                 BRz USER_DONE\r\n
+ 362 | 3104 |                 RET                 ;   NO SPECIAL CHAR\r\n
+ 363 | ???? | \r\n
+ 364 | ???? | ; ================================================================================\r\n
+ 365 | ???? | ; ================               TOS FUNCTION                     ================\r\n
+ 366 | ???? | ; ================================================================================\r\n
+ 367 | ???? | \r\n
+ 368 | 3105 | TOS_CHECK       LD  R2, SIZE\r\n
+ 369 | 3106 |                 BRz ERROR_STACK     ;   EMPTY STACK -> ERROR (Can\'t check empty)\r\n
+ 370 | 3107 |                 LDR R0, R4, #0      ;   TOS value\r\n
+ 371 | 3108 |                 ADD R5, R0, #0\r\n
+ 372 | 3109 |                 ST  R0, RESULT\r\n
+ 373 | 310A | _TOS_PRINT      LEA R0, PRINT_TOS\r\n
+ 374 | 310B |                 PUTS\r\n
+ 375 | 310C |                 LD  R0, RESULT\r\n
+ 376 | 310D |                 TRAP x29\r\n
+ 377 | 310E |                 BR INPUT_LOOP\r\n
+ 378 | ???? |       \r\n
+ 379 | ???? | ; ================================================================================\r\n
+ 380 | ???? | ; ================                FUNCTIONS                       ================\r\n
+ 381 | ???? | ; ================================================================================\r\n
  382 | ???? | \r\n
- 383 | 3180 | R2_IS_POS       ADD  R1, R1, #0\r\n
- 384 | 3181 |                 BRp  POS_ADD        ;   (+) + (+)\r\n
- 385 | 3182 |                 BRnz REGULAR_ADD    ;   (+) + (-) OR (+) + 0\r\n
- 386 | ???? | \r\n
- 387 | 3183 | R2_IS_NEG       ADD  R1, R1, #0\r\n
- 388 | 3184 |                 BRzp REGULAR_ADD    ;   (-) + (+) OR (-) + 0\r\n
- 389 | 3185 |                 BRn  NEG_ADD        ;   (-) + (-)\r\n
- 390 | ???? |                 \r\n
- 391 | 3186 | POS_ADD         ADD  R0, R2, R1\r\n
- 392 | 3187 |                 BRnz ERROR_NUM      ;   (+) + (+) = (-) means an OVERFLOW occured\r\n
- 393 | 3188 |                 RET\r\n
- 394 | ???? | \r\n
- 395 | 3189 | NEG_ADD         ADD  R0, R2, R1\r\n
- 396 | 318A |                 BRzp ERROR_NUM      ;   (-) + (-) = (+) means an UNDERFLOW occured\r\n
- 397 | 318B |                 RET\r\n
- 398 | ???? |                 \r\n
- 399 | ???? | ; Its impossible for overflow/underflow here as R1 or R2 cannot hold a value more than 16-bits\r\n
- 400 | ???? | ; As such, if (+) + (-) or vice versa, it\'ll always equal to something else less together\r\n
- 401 | 318C | REGULAR_ADD     ADD R0, R2, R1\r\n
- 402 | 318D |                 RET\r\n
- 403 | ???? | \r\n
- 404 | ???? | ; ================================================\r\n
- 405 | ???? | ; ============      MULTIPLICATION    ============\r\n
- 406 | ???? | ; ================================================\r\n
- 407 | ???? | \r\n
- 408 | 318E | MULTIPLICATION  ADD R1, R1, #0\r\n
- 409 | 318F |                 BRz TIMES_ZERO      ;   R2 * 0\r\n
- 410 | 3190 |                 BRp SKIP            ;   R2 * (+)\r\n
- 411 | 3191 |                 TRAP x27            ;   R1 is negative, flip signs of both\r\n
- 412 | 3192 | SKIP            ADD R2, R2, #0\r\n
- 413 | 3193 |                 BRn NEG_MULT\r\n
- 414 | 3194 |                 BRp POS_MULT\r\n
- 415 | 3195 |                 BRz TIMES_ZERO\r\n
+ 383 | 310F | NUM_CHK         LD  R1, _NINE       ;   R0 = \'9\'\r\n
+ 384 | 3110 |                 NOT R1, R1\r\n
+ 385 | 3111 |                 ADD R1, R1, #1\r\n
+ 386 | 3112 |                 ADD R1, R0, R1\r\n
+ 387 | 3113 |                 BRp INPUT_LOOP      ;   IGNORE, INVALID INPUT (R0 > x39 (\'9\'))\r\n
+ 388 | 3114 |                 LD  R1, _ZERO       ;   R0 = \'0\'\r\n
+ 389 | 3115 |                 NOT R1, R1\r\n
+ 390 | 3116 |                 ADD R1, R1, #1\r\n
+ 391 | 3117 |                 ADD R1, R0, R1\r\n
+ 392 | 3118 |                 BRn INPUT_LOOP      ;   IGNORE, INVALID INPUT (R0 < x2A (\'0\'))\r\n
+ 393 | 3119 |                 BR  START_NUM\r\n
+ 394 | ???? |                 \r\n
+ 395 | 311A | OTHER_CHAR_CHK  LD  R1, _ENTER      ;   R0 = ENTER_KEY\r\n
+ 396 | 311B |                 NOT R1, R1\r\n
+ 397 | 311C |                 ADD R1, R1, #1\r\n
+ 398 | 311D |                 ADD R1, R0, R1\r\n
+ 399 | 311E |                 BRz _HIT_ENTER      ;   New line for additional expression\r\n
+ 400 | 311F |                 LD  R1, _PERIOD     ;   R0 = \'.\'\r\n
+ 401 | 3120 |                 NOT R1, R1\r\n
+ 402 | 3121 |                 ADD R1, R1, #1\r\n
+ 403 | 3122 |                 ADD R1, R0, R1\r\n
+ 404 | 3123 |                 BRz TOS_CHECK       ;   Check Top of Stack if R0 == \'.\'\r\n
+ 405 | 3124 |                 RET\r\n
+ 406 | ???? |                 \r\n
+ 407 | 3125 | _HIT_ENTER      OUT\r\n
+ 408 | 3126 |                 BR PRE_INPUT\r\n
+ 409 | ???? | \r\n
+ 410 | ???? | ; ================================================================================\r\n
+ 411 | ???? | ; =============                ERROR FUNCTIONS                       =============\r\n
+ 412 | ???? | ; ================================================================================\r\n
+ 413 | ???? | ;   INTRODUCED POINTERS TO PREVENT INSTRUCTION DISTANCE ERROR (value is too big for signed 9-bit integer)\r\n
+ 414 | 3127 | PTR_JUST_LINES    .FILL JUST_LINES\r\n
+ 415 | 3128 | PTR_ERROR_MESSAGE .FILL ERROR_MESSAGE\r\n
  416 | ???? | \r\n
- 417 | ???? | ;   -= POSITIVE MULTIPLCATION =-\r\n
- 418 | 3196 | POS_MULT        ADD  R0, R2, #0     ;   Multiply by 1\r\n
- 419 | 3197 |                 ADD  R1, R1, #-1\r\n
- 420 | 3198 |                 BRz  FINISHED_MULT\r\n
- 421 | 3199 | POS_MULT_NEXT   ADD  R0, R0, R2     ;   Multiply (R0 + R2)\r\n
- 422 | 319A |                 BRnz ERROR_NUM      ;   [ (+) * (-) = (+) ] -> OVERFLOW\r\n
- 423 | 319B |                 ADD  R1, R1, #-1    ;   Decrement loop\r\n
- 424 | 319C |                 BRp  POS_MULT_NEXT  ;   REPEAT\r\n
- 425 | 319D |                 BR   FINISHED_MULT\r\n
- 426 | ???? | \r\n
- 427 | ???? | ;   -= NEGATIVE MULTIPLCATION =-\r\n
- 428 | 319E | NEG_MULT        ADD R0, R2, #0      ;   Multiply by 1\r\n
- 429 | 319F |                 ADD R1, R1, #-1\r\n
- 430 | 31A0 |                 BRz FINISHED_MULT\r\n
- 431 | 31A1 | NEG_MULT_NEXT   ADD R0, R0, R2      ;   Multiply (R0 + R2)\r\n
- 432 | 31A2 |                 BRzp ERROR_NUM      ;   [ (+) * (-) = (+) ] -> UNDERFLOW\r\n
- 433 | 31A3 |                 ADD R1, R1, #-1     ;   Decrement loop\r\n
- 434 | 31A4 |                 BRp NEG_MULT_NEXT   ;   REPEAT\r\n
- 435 | 31A5 |                 BR  FINISHED_MULT\r\n
- 436 | ???? | \r\n
- 437 | ???? | ;   -= CONDITIONS =-\r\n
- 438 | 31A6 | TIMES_ZERO      AND R0, R0, #0\r\n
- 439 | 31A7 |                 RET\r\n
- 440 | ???? |                 \r\n
- 441 | 31A8 | TIMES_ONE       ADD R0, R2, #0\r\n
- 442 | 31A9 |                 RET\r\n
- 443 | ???? |                 \r\n
- 444 | 31AA | FINISHED_MULT   RET\r\n
- 445 | ???? | \r\n
- 446 | ???? | ; ==========================================\r\n
- 447 | ???? | ; ============      DIVISION    ============\r\n
- 448 | ???? | ; ==========================================\r\n
- 449 | ???? | \r\n
- 450 | 31AB | DIVISION        ADD R1, R1, #0\r\n
- 451 | 31AC |                 BRz ERROR_UNDEFINED ;    Cannot divide by zero\r\n
- 452 | 31AD |                 BRp DIV_CHK_R2      ;    R1 is already positive, move on\r\n
- 453 | 31AE |                 TRAP x27            ;    R1 is negative, so flip BOTH\r\n
- 454 | 31AF | DIV_CHK_R2      ADD R2, R2, #0\r\n
- 455 | 31B0 |                 BRp DIV_POS_SETUP   ;    R2 positive -> Positive division\r\n
- 456 | 31B1 |                 BRn DIV_NEG_SETUP   ;    R2 negative -> Negative division\r\n
- 457 | 31B2 |                 AND R0, R0, #0      ;    R2 = 0, so finished\r\n
- 458 | 31B3 |                 RET\r\n
- 459 | ???? | \r\n
- 460 | ???? | ;   -= NEGATIVE DIVISION =-           \r\n
- 461 | 31B4 | DIV_NEG_SETUP   TRAP x27            ;    R2 negative -> Setup for Negative Division\r\n
- 462 | 31B5 | DIV_NEG_LOOP    ADD R2, R2, R1      ;    R2 - R1\r\n
- 463 | 31B6 |                 BRn NEG_DONE        ;    R2 < 0 = STOP\r\n
- 464 | 31B7 |                 ADD R0, R0, #1      ;    Count 1 successful division\r\n
- 465 | 31B8 |                 BR DIV_NEG_LOOP\r\n
- 466 | 31B9 | NEG_DONE        NOT R0, R0          ;    Flip result to negative\r\n
- 467 | 31BA |                 ADD R0, R0, #1\r\n
- 468 | 31BB |                 RET\r\n
- 469 | ???? | \r\n
- 470 | ???? | ;   -= POSTIIVE DIVISION =-\r\n
- 471 | 31BC | DIV_POS_SETUP   NOT R1, R1\r\n
- 472 | 31BD |                 ADD R1, R1, #1\r\n
- 473 | 31BE | DIV_POS_LOOP    ADD R2, R2, R1      ;    R2 - R1\r\n
- 474 | 31BF |                 BRn POS_DONE        ;    R2 < 0 = STOP\r\n
- 475 | 31C0 |                 ADD R0, R0, #1      ;    Count 1 successful division\r\n
- 476 | 31C1 |                 BR DIV_POS_LOOP\r\n
- 477 | 31C2 | POS_DONE        RET\r\n
- 478 | ???? | \r\n
- 479 | 31C3 | END             HALT\r\n
- 480 | ???? |                 .END\r\n
- 481 | ???? |                 \r\n
- 482 | ???? | \r\n
- 483 | ???? | ; ===============================================\r\n
- 484 | ???? | ; ============      LOGIC PROCESS    ============\r\n
- 485 | ???? | ; ===============================================\r\n
- 486 | ???? | ; -= MULTIPLICATION =-\r\n
- 487 | ???? | ; R0 = R2 * R1\r\n
- 488 | ???? | ; Process (WITHOUT OVERFLOW/UNDERFLOW CHECK):\r\n
- 489 | ???? | ;   if (R1 == 0) {\r\n
- 490 | ???? | ;       return 0\r\n
- 491 | ???? | ;   } else if (R1 > 0) {\r\n
- 492 | ???? | ;       R0 = multiply()\r\n
- 493 | ???? | ;   } else if (R1 < 0) {\r\n
- 494 | ???? | ;       R1 = R1 * -1\r\n
- 495 | ???? | ;       R2 = R2 * -1\r\n
- 496 | ???? | ;       R0 = multiply()\r\n
- 497 | ???? | ;   }\r\n
- 498 | ???? | ;   return R0\r\n
- 499 | ???? | \r\n
- 500 | ???? | ;   multiply() {\r\n
- 501 | ???? | ;       R0 = R0 + R2\r\n
- 502 | ???? | ;       R1--\r\n
- 503 | ???? | ;       if (R1 == 0) { \r\n
- 504 | ???? | ;           return R0 \r\n
- 505 | ???? | ;       }\r\n
- 506 | ???? | ;       return multiply()\r\n
- 507 | ???? | ;   }\r\n
- 508 | ???? | \r\n
- 509 | ???? | \r\n
- 510 | ???? | ; -= DIVISION =-\r\n
- 511 | ???? | ; R0 = R2 / R1\r\n
- 512 | ???? | ; Process (WITHOUT OVERFLOW/UNDERFLOW CHECK):\r\n
- 513 | ???? | ;   if (R1 == 0) {                  ; R2 / R1 = Undefined\r\n
- 514 | ???? | ;     return ERROR\r\n
- 515 | ???? | ;   } else if (R1 < 0) {            ; Flip signs for proper condition checks\r\n
- 516 | ???? | ;       R1 = R1 * -1\r\n
- 517 | ???? | ;       R2 = R2 * -1\r\n
- 518 | ???? | ;   }\r\n
- 519 | ???? | ;\r\n
- 520 | ???? | ;   if (R2 > 0) {                   ; Positive Division\r\n
- 521 | ???? | ;       R1 = R1 * -1\r\n
- 522 | ???? | ;       R0 = divide() [DIV_POS_SETUP]\r\n
- 523 | ???? | ;       return R0\r\n
- 524 | ???? | ;   } else if (R2 < 0) {            ; Negative Division\r\n
- 525 | ???? | ;       R2 = R2 * -1\r\n
- 526 | ???? | ;       R1 = R1 * -1\r\n
- 527 | ???? | ;       R0 = divide() [DIV_NEG_SETUP]\r\n
- 528 | ???? | ;       R0 = R0 * -1\r\n
- 529 | ???? | ;       return R0\r\n
- 530 | ???? | ;   } else if (R2 == 0) {           ; R2 / R1 = 0\r\n
- 531 | ???? | ;       return R2\r\n
- 532 | ???? | ;   }
+ 417 | 3129 | ERROR           LD R0, PTR_JUST_LINES\r\n
+ 418 | 312A |                 PUTS\r\n
+ 419 | 312B |                 LD R0, PTR_ERROR_MESSAGE\r\n
+ 420 | 312C |                 PUTS\r\n
+ 421 | 312D |                 LD R0, PTR_JUST_LINES\r\n
+ 422 | 312E |                 PUTS\r\n
+ 423 | 312F |                 AND R0, R0, #0      ; Resets SIZE\r\n
+ 424 | 3130 |                 ST  R0, SIZE\r\n
+ 425 | 3131 |                 BR  START\r\n
+ 426 | ???? |                \r\n
+ 427 | 3132 | ERROR_STACK     LD  R0, _STACK_ERROR\r\n
+ 428 | 3133 |                 OUT\r\n
+ 429 | 3134 |                 BR  ERROR\r\n
+ 430 | ???? | \r\n
+ 431 | 3135 | ERROR_NUM       LD  R0, _NUM_ERROR\r\n
+ 432 | 3136 |                 OUT\r\n
+ 433 | 3137 |                 BR  ERROR\r\n
+ 434 | ???? |                 \r\n
+ 435 | 3138 | ERROR_UNDEFINED LD R0, _UNDEFINED_ERROR    ; Divide by 0 case\r\n
+ 436 | 3139 |                 OUT\r\n
+ 437 | 313A |                 BR  ERROR\r\n
+ 438 | ???? | \r\n
+ 439 | ???? | ; ================================================================================\r\n
+ 440 | ???? | ; =============                STACK FUNCTIONS                       =============\r\n
+ 441 | ???? | ; ================================================================================\r\n
+ 442 | ???? | \r\n
+ 443 | 313B | PUSH            ADD R4, R4, #-1     ;   Decrement\r\n
+ 444 | 313C |                 STR R0, R4, #0      ;   Store\r\n
+ 445 | 313D |                 LD  R2, SIZE        ;   SIZE++\r\n
+ 446 | 313E |                 ADD R2, R2, #1\r\n
+ 447 | 313F |                 ST  R2, SIZE\r\n
+ 448 | 3140 |                 RET\r\n
+ 449 | ???? |                 \r\n
+ 450 | 3141 | POP             LDR R0, R4, #0      ;   Load\r\n
+ 451 | 3142 |                 ADD R4, R4, #1      ;   Increment\r\n
+ 452 | 3143 |                 LD  R2, SIZE        ;   SIZE--\r\n
+ 453 | 3144 |                 ADD R2, R2, #-1\r\n
+ 454 | 3145 |                 ST  R2, SIZE\r\n
+ 455 | 3146 |                 RET\r\n
+ 456 | ???? | \r\n
+ 457 | ???? | ; ================================================================================\r\n
+ 458 | ???? | ; ============                OPERATOR FUNCTIONS                       ===========\r\n
+ 459 | ???? | ; ================================================================================\r\n
+ 460 | ???? | \r\n
+ 461 | 3147 | OPERATOR_CHK    LD  R1, _ADD\r\n
+ 462 | 3148 |                 NOT R1, R1\r\n
+ 463 | 3149 |                 ADD R1, R1, #1\r\n
+ 464 | 314A |                 ADD R1, R0, R1\r\n
+ 465 | 314B |                 BRz ADD_SUBROUTINE\r\n
+ 466 | 314C |                 LD  R1, _SUBTRACT\r\n
+ 467 | 314D |                 NOT R1, R1\r\n
+ 468 | 314E |                 ADD R1, R1, #1\r\n
+ 469 | 314F |                 ADD R1, R0, R1\r\n
+ 470 | 3150 |                 BRz SUB_SUBROUTINE\r\n
+ 471 | 3151 |                 LD  R1, _MULTIPLY\r\n
+ 472 | 3152 |                 NOT R1, R1\r\n
+ 473 | 3153 |                 ADD R1, R1, #1\r\n
+ 474 | 3154 |                 ADD R1, R0, R1\r\n
+ 475 | 3155 |                 BRz MUL_SUBROUTINE\r\n
+ 476 | 3156 |                 LD  R1, _DIVIDE\r\n
+ 477 | 3157 |                 NOT R1, R1\r\n
+ 478 | 3158 |                 ADD R1, R1, #1\r\n
+ 479 | 3159 |                 ADD R1, R0, R1\r\n
+ 480 | 315A |                 BRz DIV_SUBROUTINE\r\n
+ 481 | 315B |                 RET                 ;   NO OPERATOR WAS FOUND\r\n
+ 482 | ???? |                 \r\n
+ 483 | 315C | ADD_SUBROUTINE  OUT\r\n
+ 484 | 315D |                 LEA R3, ADDITION\r\n
+ 485 | 315E |                 BR  EXECUTE_OPERATOR\r\n
+ 486 | ???? |                 \r\n
+ 487 | 315F | SUB_SUBROUTINE  OUT\r\n
+ 488 | 3160 |                 LEA R3, SUBTRACTION\r\n
+ 489 | 3161 |                 BR  EXECUTE_OPERATOR\r\n
+ 490 | ???? |                 \r\n
+ 491 | 3162 | MUL_SUBROUTINE  OUT\r\n
+ 492 | 3163 |                 LEA R3, MULTIPLICATION\r\n
+ 493 | 3164 |                 BR  EXECUTE_OPERATOR\r\n
+ 494 | ???? |                 \r\n
+ 495 | 3165 | DIV_SUBROUTINE  OUT\r\n
+ 496 | 3166 |                 LEA R3, DIVISION\r\n
+ 497 | 3167 |                 BR  EXECUTE_OPERATOR\r\n
+ 498 | ???? | \r\n
+ 499 | 3168 | EXECUTE_OPERATOR LD  R2, SIZE\r\n
+ 500 | 3169 |                 ADD  R2, R2, #-1\r\n
+ 501 | 316A |                 BRnz ERROR_STACK    ;   SIZE >= 2, else invalid computation\r\n
+ 502 | 316B |                 JSR  POP\r\n
+ 503 | 316C |                 ADD  R1, R0, #0     ;   (...) +-*/ (THIS)\r\n
+ 504 | 316D |                 JSR  POP\r\n
+ 505 | 316E |                 ADD  R2, R0, #0     ;   (THIS) +-*/ (...)\r\n
+ 506 | 316F |                 AND  R0, R0, #0\r\n
+ 507 | 3170 |                 JSRR R3             ;   JUMP TO SAVED OPERATOR FUNCITON\r\n
+ 508 | 3171 | IS_VALID        JSR  PUSH\r\n
+ 509 | 3172 |                 BR   INPUT_LOOP\r\n
+ 510 | ???? | \r\n
+ 511 | ???? | ; ========================================================\r\n
+ 512 | ???? | ; ============      ADDITION / SUBTRACTION    ============\r\n
+ 513 | ???? | ; ========================================================\r\n
+ 514 | ???? | ; R2+ & R1+ = (-)\r\n
+ 515 | ???? | ; R2- & R1- = (+)\r\n
+ 516 | ???? | ; Otherwise, do a regular add\r\n
+ 517 | ???? |         \r\n
+ 518 | 3173 | SUBTRACTION     NOT R1, R1          ;   Flip signs of R1\r\n
+ 519 | 3174 |                 ADD R1, R1, #1\r\n
+ 520 | 3175 | ADDITION        ADD R2, R2, #0      ;   Check R2 Sign\r\n
+ 521 | 3176 |                 BRp R2_IS_POS       ;   (+) + (?)\r\n
+ 522 | 3177 |                 BRn R2_IS_NEG       ;   (-) + (?)\r\n
+ 523 | 3178 |                 BRz REGULAR_ADD     ;    0  + (?)\r\n
+ 524 | ???? | \r\n
+ 525 | 3179 | R2_IS_POS       ADD  R1, R1, #0\r\n
+ 526 | 317A |                 BRp  POS_ADD        ;   (+) + (+)\r\n
+ 527 | 317B |                 BRnz REGULAR_ADD    ;   (+) + (-) OR (+) + 0\r\n
+ 528 | ???? | \r\n
+ 529 | 317C | R2_IS_NEG       ADD  R1, R1, #0\r\n
+ 530 | 317D |                 BRzp REGULAR_ADD    ;   (-) + (+) OR (-) + 0\r\n
+ 531 | 317E |                 BRn  NEG_ADD        ;   (-) + (-)\r\n
+ 532 | ???? |                 \r\n
+ 533 | 317F | POS_ADD         ADD  R0, R2, R1\r\n
+ 534 | 3180 |                 BRnz ERROR_NUM      ;   (+) + (+) = (-) means an OVERFLOW occured\r\n
+ 535 | 3181 |                 RET\r\n
+ 536 | ???? | \r\n
+ 537 | 3182 | NEG_ADD         ADD  R0, R2, R1\r\n
+ 538 | 3183 |                 BRzp ERROR_NUM      ;   (-) + (-) = (+) means an UNDERFLOW occured\r\n
+ 539 | 3184 |                 RET\r\n
+ 540 | ???? |                 \r\n
+ 541 | ???? | ; Its impossible for overflow/underflow here as R1 or R2 cannot hold a value more than 16-bits\r\n
+ 542 | ???? | ; As such, if (+) + (-) or vice versa, it\'ll always equal to something else less together\r\n
+ 543 | 3185 | REGULAR_ADD     ADD R0, R2, R1\r\n
+ 544 | 3186 |                 RET\r\n
+ 545 | ???? | \r\n
+ 546 | ???? | ; ================================================\r\n
+ 547 | ???? | ; ============      MULTIPLICATION    ============\r\n
+ 548 | ???? | ; ================================================\r\n
+ 549 | ???? | \r\n
+ 550 | 3187 | MULTIPLICATION  ADD R1, R1, #0\r\n
+ 551 | 3188 |                 BRz TIMES_ZERO      ;   R2 * 0\r\n
+ 552 | 3189 |                 BRp SKIP            ;   R2 * (+)\r\n
+ 553 | 318A |                 TRAP x27            ;   R1 is negative, flip signs of both\r\n
+ 554 | 318B | SKIP            ADD R2, R2, #0\r\n
+ 555 | 318C |                 BRn NEG_MULT\r\n
+ 556 | 318D |                 BRp POS_MULT\r\n
+ 557 | 318E |                 BRz TIMES_ZERO\r\n
+ 558 | ???? | \r\n
+ 559 | ???? | ;   -= POSITIVE MULTIPLCATION =-\r\n
+ 560 | 318F | POS_MULT        ADD  R0, R2, #0     ;   Multiply by 1\r\n
+ 561 | 3190 |                 ADD  R1, R1, #-1\r\n
+ 562 | 3191 |                 BRz  FINISHED_MULT\r\n
+ 563 | 3192 | POS_MULT_NEXT   ADD  R0, R0, R2     ;   Multiply (R0 + R2)\r\n
+ 564 | 3193 |                 BRnz ERROR_NUM      ;   [ (+) * (-) = (+) ] -> OVERFLOW\r\n
+ 565 | 3194 |                 ADD  R1, R1, #-1    ;   Decrement loop\r\n
+ 566 | 3195 |                 BRp  POS_MULT_NEXT  ;   REPEAT\r\n
+ 567 | 3196 |                 BR   FINISHED_MULT\r\n
+ 568 | ???? | \r\n
+ 569 | ???? | ;   -= NEGATIVE MULTIPLCATION =-\r\n
+ 570 | 3197 | NEG_MULT        ADD R0, R2, #0      ;   Multiply by 1\r\n
+ 571 | 3198 |                 ADD R1, R1, #-1\r\n
+ 572 | 3199 |                 BRz FINISHED_MULT\r\n
+ 573 | 319A | NEG_MULT_NEXT   ADD R0, R0, R2      ;   Multiply (R0 + R2)\r\n
+ 574 | 319B |                 BRzp ERROR_NUM      ;   [ (+) * (-) = (+) ] -> UNDERFLOW\r\n
+ 575 | 319C |                 ADD R1, R1, #-1     ;   Decrement loop\r\n
+ 576 | 319D |                 BRp NEG_MULT_NEXT   ;   REPEAT\r\n
+ 577 | 319E |                 BR  FINISHED_MULT\r\n
+ 578 | ???? | \r\n
+ 579 | ???? | ;   -= CONDITIONS =-\r\n
+ 580 | 319F | TIMES_ZERO      AND R0, R0, #0\r\n
+ 581 | 31A0 |                 RET\r\n
+ 582 | ???? |                 \r\n
+ 583 | 31A1 | TIMES_ONE       ADD R0, R2, #0\r\n
+ 584 | 31A2 |                 RET\r\n
+ 585 | ???? |                 \r\n
+ 586 | 31A3 | FINISHED_MULT   RET\r\n
+ 587 | ???? | \r\n
+ 588 | ???? | ; ==========================================\r\n
+ 589 | ???? | ; ============      DIVISION    ============\r\n
+ 590 | ???? | ; ==========================================\r\n
+ 591 | ???? | \r\n
+ 592 | 31A4 | DIVISION        ADD R1, R1, #0\r\n
+ 593 | 31A5 |                 BRz ERROR_UNDEFINED ;    Cannot divide by zero\r\n
+ 594 | 31A6 |                 BRp DIV_CHK_R2      ;    R1 is already positive, move on\r\n
+ 595 | 31A7 |                 TRAP x27            ;    R1 is negative, so flip BOTH\r\n
+ 596 | 31A8 | DIV_CHK_R2      ADD R2, R2, #0\r\n
+ 597 | 31A9 |                 BRp DIV_POS_SETUP   ;    R2 positive -> Positive division\r\n
+ 598 | 31AA |                 BRn DIV_NEG_SETUP   ;    R2 negative -> Negative division\r\n
+ 599 | 31AB |                 AND R0, R0, #0      ;    R2 = 0, so finished\r\n
+ 600 | 31AC |                 RET\r\n
+ 601 | ???? | \r\n
+ 602 | ???? | ;   -= NEGATIVE DIVISION =-           \r\n
+ 603 | 31AD | DIV_NEG_SETUP   TRAP x27            ;    R2 negative -> Setup for Negative Division\r\n
+ 604 | 31AE | DIV_NEG_LOOP    ADD R2, R2, R1      ;    R2 - R1\r\n
+ 605 | 31AF |                 BRn NEG_DONE        ;    R2 < 0 = STOP\r\n
+ 606 | 31B0 |                 ADD R0, R0, #1      ;    Count 1 successful division\r\n
+ 607 | 31B1 |                 BR DIV_NEG_LOOP\r\n
+ 608 | 31B2 | NEG_DONE        NOT R0, R0          ;    Flip result to negative\r\n
+ 609 | 31B3 |                 ADD R0, R0, #1\r\n
+ 610 | 31B4 |                 RET\r\n
+ 611 | ???? | \r\n
+ 612 | ???? | ;   -= POSTIIVE DIVISION =-\r\n
+ 613 | 31B5 | DIV_POS_SETUP   NOT R1, R1\r\n
+ 614 | 31B6 |                 ADD R1, R1, #1\r\n
+ 615 | 31B7 | DIV_POS_LOOP    ADD R2, R2, R1      ;    R2 - R1\r\n
+ 616 | 31B8 |                 BRn POS_DONE        ;    R2 < 0 = STOP\r\n
+ 617 | 31B9 |                 ADD R0, R0, #1      ;    Count 1 successful division\r\n
+ 618 | 31BA |                 BR DIV_POS_LOOP\r\n
+ 619 | 31BB | POS_DONE        RET\r\n
+ 620 | ???? | \r\n
+ 621 | 31BC | END             HALT\r\n
+ 622 | ???? |                 .END\r\n
+ 623 | ???? |                 \r\n
+ 624 | ???? | \r\n
+ 625 | ???? | ; ===============================================\r\n
+ 626 | ???? | ; ============      LOGIC PROCESS    ============\r\n
+ 627 | ???? | ; ===============================================\r\n
+ 628 | ???? | ; -= MULTIPLICATION =-\r\n
+ 629 | ???? | ; R0 = R2 * R1\r\n
+ 630 | ???? | ; Process (WITHOUT OVERFLOW/UNDERFLOW CHECK):\r\n
+ 631 | ???? | ;   if (R1 == 0) {\r\n
+ 632 | ???? | ;       return 0\r\n
+ 633 | ???? | ;   } else if (R1 > 0) {\r\n
+ 634 | ???? | ;       R0 = multiply()\r\n
+ 635 | ???? | ;   } else if (R1 < 0) {\r\n
+ 636 | ???? | ;       R1 = R1 * -1\r\n
+ 637 | ???? | ;       R2 = R2 * -1\r\n
+ 638 | ???? | ;       R0 = multiply()\r\n
+ 639 | ???? | ;   }\r\n
+ 640 | ???? | ;   return R0\r\n
+ 641 | ???? | \r\n
+ 642 | ???? | ;   multiply() {\r\n
+ 643 | ???? | ;       R0 = R0 + R2\r\n
+ 644 | ???? | ;       R1--\r\n
+ 645 | ???? | ;       if (R1 == 0) { \r\n
+ 646 | ???? | ;           return R0 \r\n
+ 647 | ???? | ;       }\r\n
+ 648 | ???? | ;       return multiply()\r\n
+ 649 | ???? | ;   }\r\n
+ 650 | ???? | \r\n
+ 651 | ???? | \r\n
+ 652 | ???? | ; -= DIVISION =-\r\n
+ 653 | ???? | ; R0 = R2 / R1\r\n
+ 654 | ???? | ; Process (WITHOUT OVERFLOW/UNDERFLOW CHECK):\r\n
+ 655 | ???? | ;   if (R1 == 0) {                  ; R2 / R1 = Undefined\r\n
+ 656 | ???? | ;     return ERROR\r\n
+ 657 | ???? | ;   } else if (R1 < 0) {            ; Flip signs for proper condition checks\r\n
+ 658 | ???? | ;       R1 = R1 * -1\r\n
+ 659 | ???? | ;       R2 = R2 * -1\r\n
+ 660 | ???? | ;   }\r\n
+ 661 | ???? | ;\r\n
+ 662 | ???? | ;   if (R2 > 0) {                   ; Positive Division\r\n
+ 663 | ???? | ;       R1 = R1 * -1\r\n
+ 664 | ???? | ;       R0 = divide() [DIV_POS_SETUP]\r\n
+ 665 | ???? | ;       return R0\r\n
+ 666 | ???? | ;   } else if (R2 < 0) {            ; Negative Division\r\n
+ 667 | ???? | ;       R2 = R2 * -1\r\n
+ 668 | ???? | ;       R1 = R1 * -1\r\n
+ 669 | ???? | ;       R0 = divide() [DIV_NEG_SETUP]\r\n
+ 670 | ???? | ;       R0 = R0 * -1\r\n
+ 671 | ???? | ;       return R0\r\n
+ 672 | ???? | ;   } else if (R2 == 0) {           ; R2 / R1 = 0\r\n
+ 673 | ???? | ;       return R2\r\n
+ 674 | ???? | ;   }
 ====================
